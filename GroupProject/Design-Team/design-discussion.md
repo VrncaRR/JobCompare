@@ -32,4 +32,4 @@ This design includes a ‘jobComparisonManager’ class that seems unnecessary, 
 
 
 ## Summary
-One final section, called “Summary”, that concisely summarizes the lessons learned in the process of discussing the designs, in terms of design, team work, and any other aspect that the team members consider relevant.
+In this assignment the team learned the value of discussion and how sharing thoughts and ideas can greatly help in designing UML diagrams. We found that many design ideas we had could be simplified or combined and the process. Having group discussion was also helpful because when one person’s ideas begin to stray from the design intent or begins to focus on UI implementation the other group members can remind them of the focus and to kept design concepts agnostic of UI implementation.
