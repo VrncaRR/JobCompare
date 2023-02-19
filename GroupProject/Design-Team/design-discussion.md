@@ -29,6 +29,20 @@ This design includes a ‘jobComparisonManager’ class that seems unnecessary, 
 ## Team Design
 ![image info](./images/team-design.png)
 > Team UML Design   
+### Commonalities
+All designs use UML class diagram
+Three designs all have classes like Job and Comparison. 
+Within the classes, there are common attributes and methods for both Job class and Comparison class
+
+### Differences
+Number of classes. 
+In Margaret’s design, there are 6 classes. Job, currentJob, jobComparisonManager, jobOffer, comparisonSettings, jobComparator. Her design differentiate ‘current job’ and ‘offer’ by using two different classes which extend from the parent class ‘job’. In the team design, we only use one ‘Job’ class and use isCurrentJob to differentiate ‘current job’ and ‘offer’. In Veronica’s design, she has a score class for job score comparison. And we decide to integrate it with Job offer and use an attribute score to represent the job score.
+Interactivity between classes:
+In Margaret’s design, there are jobComparisonManager class to handle the interactivites between job class and jobComparator class. In the team design, we decide to let the UI and system to handle the interactivities.
+
+
+Visibilities of attributes and methods
+In Margaret and Luke’s design, some attributes and all methods are public . In the team design, we set all attributes private and some methods private. Methods will only be public if they will be called by other methods outside of the same class 
 
 
 ## Summary
