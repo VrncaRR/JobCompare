@@ -51,10 +51,10 @@ final release.
 - Back End Developer: Develops program architecture and manages database. Works with Front End dev on integration.
 - QA: Constructs test cases, performs program tests, and reports bugs to team.
 - Project Management: Manages projects schedule and monitors phase status and completion. Is responsible for
-submitting assignments to buzzport/gradescope.
+submitting assignments to buzz-port/gradescope.
 
-| Team Member   | Roles |
-|---------------|-------|
-| Luke Runyan   | Title |
-| Veroncia Fang | Text  |
-|Margarat Stuart | Roles|
+| Team Member     | Roles                          |
+|-----------------|--------------------------------|
+| Luke Runyan     | Back End, Front End(UI)        |
+| Veroncia Fang   | Back End, QA, UX               |
+| Margaret Stuart | Back End , QA, Project Manager |
