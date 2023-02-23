@@ -1,26 +1,60 @@
 # Project Plan
 
-*This is the template for your project plan. The parts in italics are concise explanations of what should go in the corresponding sections and should not appear in the final document.*
-
-**Author**: \<person or team name\>
+**Author**: Team 074
 
 ## 1 Introduction
 
-*Here you introduce the product. Keep this  clean and simple, one or two sentences at most.*
+*This product is an application to help a person to compare a current job and job offers. The application will take into account multiple variables and provide the user with the ability to make weighted comparisons.*
 
 ## 2 Process Description
 
-*Project development process description as a set of activities; for each development process activity, provide the following:*
+## Inception
+- *Activity Description*
+  - In this phase the team will compile design requirements, generate use case models, and begin developing
+wire frame diagrams for the application.
+- *Entrance Criteria*
+  - User requirements and user definition.
+- *Exit Criteria*
+  - Design description document, UML Diagram, and UI wireframes created.
 
-- *Activity name (verb or verb phrase)*
-- *Activity description (concise paragraph)*
-- *Entrance criteria (inputs needed for the activity)*
-- *Exit criteria (outputs produced by the activity and how you know it has been completed satisfactorily)*
+## Elaboration
+- *Activity Description*
+  - In this phase the team will generate basic program architecture, creating classes along with their attributes
+and methods as defined in the design description.
+- *Entrance Criteria*
+  - Exact definition of classes, attributes, and methods. 
+- *Exit Criteria*
+  - All defined classes and methods have been created and validated through testing.
 
+## Construction
+- *Activity Description*
+  - In this phase the team will complete ful-stack integration of the program. All functionalities of the application
+will be accessible from the UI.
+- *Entrance Criteria*
+  - All classes and methods must be implemented. UI wire-frame graphics must be competed and ready for integration.
+- *Exit Criteria*
+  - Fully working program. User can navigate UI and access all functionalities as defined in the design description.
+
+## Transition
+- *Activity Description*
+  - This phase is primarily for testing and validation of the program. Upon completion the program will be ready for 
+final release.
+- *Entrance Criteria*
+  - Fully functioning program, back-end and front end are fully integrated.
+- *Exit Criteria*
+  - Product and user testing complete, and project is fully ready for release.
+- 
 ## 3 Team
+### Roles
+- Front End (UI) Developer: Develops user interface. Works with Back End Dev on integration.
+- User Experience (UX): Focused on use case considerations and overall user experience
+- Back End Developer: Develops program architecture and manages database. Works with Front End dev on integration.
+- QA: Constructs test cases, performs program tests, and reports bugs to team.
+- Project Management: Manages projects schedule and monitors phase status and completion. Is responsible for
+submitting assignments to buzzport/gradescope.
 
-*Describe the team and their roles (include at least 4 roles, there may be more roles than there are team members)*
-
-- *Team members' names*
-- *Roles, with a short description of each role*
-- *Table showing which team member(s) has which role(s)*
+| Team Member   | Roles |
+|---------------|-------|
+| Luke Runyan   | Title |
+| Veroncia Fang | Text  |
+|Margarat Stuart | Roles|
