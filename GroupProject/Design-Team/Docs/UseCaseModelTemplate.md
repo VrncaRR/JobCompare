@@ -2,17 +2,43 @@
 
 *This is the template for your use case model. The parts in italics are concise explanations of what should go in the corresponding sections and should not appear in the final document.*
 
-**Author**: \<person or team name\>
+**Author**: Team 074
 
 ## 1 Use Case Diagram
 
-*This section should contain a use case diagram with all the actors and use cases for the system, suitably connected.*
+![image info](./image/usercase.png)
 
 ## 2 Use Case Descriptions
 
-*For each use case in the use case diagram, this section should contain a description, with the following elements:*
+###Use case: enter/edit current job
 
-- *Requirements: High-level description of what the use case must allow the user to do.*
-- *Pre-conditions: Conditions that must be true before the use case is run.*
-- *Post-conditions Conditions that must be true once the use case is run.*
-- *Scenarios: Sequence of events that characterize the use case. This part may include multiple scenarios, for normal, alternate, and exceptional event sequences. These scenarios may be expressed as a list of steps in natural language or as sequence diagrams.*
+User log in to the system.<br>
+System shows a user interface to enter/edit the details of their current job.
+The user enter the job details.<br>
+If the user saves the job details, then the job details will be saved to the system<br>
+If the user exits without saving the job details, the job details won’t be saved to the system.
+
+
+###Use case: enter/edit job offer
+User log in to the system.<br>
+System shows a user interface to enter/edit the details of job offer.<br>
+The user enter the job details.<br>
+If the user saves the job details, then the job details will be saved to the system.<br>
+If the user exits without saving the job details, the job details won’t be saved to the system.<br>
+
+###Use case: Adjust comparison setting
+User log in to the system.<br>
+System shows a user interface to adjust integer weights of Yearly salary, Yearly bonus, Restricted Stock Unit Award, Relocation stipend, and Personal Choice Holidays.<br>
+The user adjusts integer weights.<br>
+If the user saves the integer weights, the adjusted weights will be saved.<br>
+If the user exits without saving the adjusted weights, the adjusted weights won’t be saved to the system.<br>
+
+###Use case: Compare job offers
+User log in to the system.<br>
+System shows a user interface of a list of job offers, displayed as Title and Company, ranked from best to worst based on the weighted score, and including the current job (if present), clearly indicated.<br>
+User selects two jobs to compare and trigger the comparison.<br>
+System shows a table comparing the two jobs, displaying details for each job.<br>
+If there is only one job in the system, system will display the detail of the job.<br>
+If there is no job in the system, system will display an empty table.<br>
+User performs another comparison or goes back to the main menu.<br>
+
