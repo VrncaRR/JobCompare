@@ -1,24 +1,22 @@
 # Design Document
 
-*This is the template for your design document. The parts in italics are concise explanations of what should go in the corresponding sections and should not appear in the final document.*
-
 **Author**: Team074
 
 ## 1 Design Considerations
 
-*The subsections below describe the issues that need to be addressed or resolved prior to or while completing the design, as well as issues that may influence the design process.*
-
 ### 1.1 Assumptions
 
-*Describe any assumption, background, or dependencies of the software, its use, the operational environment, or significant project issues.*
+The software is a single-user job offer comparison app, programmed in Java 19, that runs the Android 12 operating system. It is assumed that a single system is running the app. The app’s state will persist between runs, and this is accomplished through the use of Android SQLite. One other external dependency is used, which is the cost of living index used to calculate adjusted salaries and bonuses. The software is developed using the Android Studio IDE.
+
 
 ### 1.2 Constraints
 
-*Describe any constraints on the system that have a significant impact on the design of the system.*
+The API level is 31 (Android version 12), which impacts several packages: compileSdk, minSdk, and targetSdk. The details of jobs/job offers used for comparisons are entered only by the user. No external data source is used to provide job offer detail information, although adjusted salaries and bonuses are calculated based on a cost of living index. Due to the high amount of user text input required, the UI must be designed such that it is intuitive and responsive.
+
 
 ### 1.3 System Environment
 
-*Describe the hardware and software that the system must operate in and interact with.*
+The system is used on a mobile phone (Google Pixel 6) that runs Android 12. The Android operating system is Linux-based and is used for mobile devices, including smartphones and tablets. The Pixel 6 uses a Google Tensor (ARM64) processor and has 8 GB of RAM. Due to Android version 12, the app will run in its own process and instance of Android Runtime.
 
 ## 2 Architectural Design
 
