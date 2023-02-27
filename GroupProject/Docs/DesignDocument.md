@@ -39,12 +39,13 @@ The diagram shows the deployment of andriod application. There is an apk. Within
 
 ### 3.1 Class Diagram
 
-*In the case of an OO design, the internal structure of a software component would typically be expressed as a UML class diagram that represents the static class structure for the component and their relationships.*
-
-### 3.2 Other Diagrams
-
-*<u>Optionally</u>, you can decide to describe some dynamic aspects of your system using one or more behavioral diagrams, such as sequence and state diagrams.*
+Bellow is a UML diagram describing the different classes that will be implemented in this program.
+![image info](./image/UML_Diagram.png)
 
 ## 4 User Interface Design
-*For GUI-based systems, this section should provide the specific format/layout of the user interface of the system (e.g., in the form of graphical mockups).*
-
+![image info](./image/UI_MainMenu.png)
+![image info](./image/UI_CurrJob.png)
+![image info](./image/UI_JobOffer.png)
+![image info](./image/UI_ComparisonSettings.png)
+![image info](./image/UI_Compare.png)
+![image info](./image/UI_JobCompare.png)
