@@ -9,41 +9,41 @@
 ## 2 Process Description
 
 ## Inception
-- *Activity Description*
+- Activity Description
   - In this phase the team will compile design requirements, generate use case models, and begin developing
 wire frame diagrams for the application.
-- *Entrance Criteria*
+- Entrance Criteria
   - User requirements and user definition.
-- *Exit Criteria*
+- Exit Criteria
   - Design description document, UML Diagram, and UI wireframes created.
 
 ## Elaboration
-- *Activity Description*
+- Activity Description
   - In this phase the team will generate basic program architecture, creating classes along with their attributes
 and methods as defined in the design description.
-- *Entrance Criteria*
+- Entrance Criteria
   - Exact definition of classes, attributes, and methods. 
-- *Exit Criteria*
+- Exit Criteria
   - All defined classes and methods have been created and validated through testing.
 
 ## Construction
-- *Activity Description*
+- Activity Description
   - In this phase the team will complete ful-stack integration of the program. All functionalities of the application
 will be accessible from the UI.
-- *Entrance Criteria*
+- Entrance Criteria
   - All classes and methods must be implemented. UI wire-frame graphics must be competed and ready for integration.
-- *Exit Criteria*
+- Exit Criteria
   - Fully working program. User can navigate UI and access all functionalities as defined in the design description.
 
 ## Transition
-- *Activity Description*
+- Activity Description
   - This phase is primarily for testing and validation of the program. Upon completion the program will be ready for 
 final release.
-- *Entrance Criteria*
+- *ntrance Criteria
   - Fully functioning program, back-end and front end are fully integrated.
-- *Exit Criteria*
+- Exit Criteria
   - Product and user testing complete, and project is fully ready for release.
-- 
+
 ## 3 Team
 ### Roles
 - Front End (UI) Developer: Develops user interface. Works with Back End Dev on integration.
