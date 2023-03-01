@@ -23,6 +23,7 @@ public class CompareJobs extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+                finish();
             }
         });
     }
