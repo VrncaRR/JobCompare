@@ -81,7 +81,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName20"
+                android:id="@+id/entryCurJobTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -116,7 +116,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName4"
+                android:id="@+id/entryCurJobCompany"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -150,7 +150,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName6"
+                android:id="@+id/entryCurJobLocation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -184,7 +184,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName8"
+                android:id="@+id/entryCurJobCOL"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -218,7 +218,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName10"
+                android:id="@+id/entryCurJobSalary"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -252,7 +252,7 @@
                 tools:text="Yearly Bonus" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName12"
+                android:id="@+id/entryCurJobBonus"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -287,7 +287,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName14"
+                android:id="@+id/entryCurJobRSU"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -321,7 +321,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName16"
+                android:id="@+id/entryCurJobRelo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -355,7 +355,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName18"
+                android:id="@+id/entryCurJobPCH"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -387,7 +387,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/SettingsSaveButton"
+                    android:id="@+id/SaveCurJobButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Another" />

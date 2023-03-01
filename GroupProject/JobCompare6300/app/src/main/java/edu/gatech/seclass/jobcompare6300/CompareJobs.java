@@ -23,13 +23,12 @@ public class CompareJobs extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
-                finish();
             }
         });
     }
 
     public void configureAnotherButton(){
-        Button compareAnotherButton = (Button) findViewById(R.id.SettingsSaveButton);
+        Button compareAnotherButton = (Button) findViewById(R.id.SaveCurJobButton);
         compareAnotherButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
