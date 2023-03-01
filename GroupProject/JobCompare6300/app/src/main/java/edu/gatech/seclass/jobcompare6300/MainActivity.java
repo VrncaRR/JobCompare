@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         configureEnterCurrentJobButton();
         configureEnterJobOfferButton();
         configureSettingsButton();
+        configureCompareOfferButton();
     }
 
     public void configureEnterCurrentJobButton(){
@@ -47,5 +48,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    public void configureCompareOfferButton(){
+        Button compareOffersButton = (Button) findViewById(R.id.CompareOffersButton);
+        compareOffersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ListJobs.class));
+            }
+        });
+    }
 }

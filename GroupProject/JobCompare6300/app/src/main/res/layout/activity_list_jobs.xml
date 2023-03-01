@@ -91,7 +91,7 @@
                 android:text="Job Offer 7" />
 
             <Button
-                android:id="@+id/button12"
+                android:id="@+id/CompareButton"
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
                 android:insetLeft="50dp"
@@ -102,10 +102,10 @@
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/JobListCancelButton"
+                android:id="@+id/ListMainMenuButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Cancel" />
+                android:text="Main Menu" />
         </LinearLayout>
 
     </LinearLayout>
