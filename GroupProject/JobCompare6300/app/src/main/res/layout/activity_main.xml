@@ -6,13 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:text="Main Menu"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:orientation="horizontal" />
+
+        <Button
+            android:id="@+id/EnterCurrentJobButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:insetLeft="10sp"
+            android:insetTop="10sp"
+            android:insetRight="10sp"
+            android:insetBottom="10sp"
+            android:text="Enter/Edit Current Job"
+            android:textSize="20sp"
+            app:iconPadding="100dp" />
+
+        <Button
+            android:id="@+id/EnterJobOfferButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:insetLeft="10sp"
+            android:insetTop="10sp"
+            android:insetRight="10sp"
+            android:insetBottom="10sp"
+            android:text="Enter Job Offer"
+            android:textSize="20sp"
+            app:iconPadding="100dp" />
+
+        <Button
+            android:id="@+id/SettingsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:insetLeft="10sp"
+            android:insetTop="10sp"
+            android:insetRight="10sp"
+            android:insetBottom="10sp"
+            android:text="Adjust Comparison Settings"
+            android:textSize="20sp"
+            app:iconPadding="100dp" />
+
+        <Button
+            android:id="@+id/CompareOffersButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:insetLeft="10sp"
+            android:insetTop="10sp"
+            android:insetRight="10sp"
+            android:insetBottom="10sp"
+            android:text="Compare Job Offers"
+            android:textSize="20sp"
+            app:iconPadding="100dp" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
