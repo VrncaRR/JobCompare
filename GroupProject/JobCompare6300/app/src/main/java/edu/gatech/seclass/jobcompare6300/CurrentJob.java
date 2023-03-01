@@ -61,10 +61,9 @@ public class CurrentJob extends AppCompatActivity {
 
                 Boolean error = false;
                 //TODO: ADD Error Handling for Invalid Entries
+
                 //TODO: Add create Current Job actions here
-                CharSequence errorMessage = "IT WORKED!";
-                entryCurJobTitle.setError(errorMessage);
-                testingTextView.setText("Job Entered");;
+
             }
         });
     }

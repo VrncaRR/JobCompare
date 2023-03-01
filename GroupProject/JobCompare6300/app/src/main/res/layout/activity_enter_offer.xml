@@ -33,23 +33,24 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName19"
+            <TextView
+                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="center"
                 android:text="Job Title"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobTitle"
+                android:id="@+id/entryOfferTitle"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="enter here"
                 android:inputType="textPersonName" />
         </LinearLayout>
 
@@ -58,23 +59,24 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName3"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="center"
                 android:text="Company"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobCompany"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/entryOfferCompany"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="enter here"
                 android:inputType="textPersonName" />
         </LinearLayout>
 
@@ -83,23 +85,24 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName5"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="center"
                 android:text="Location"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobLocation"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:id="@+id/entryOfferLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="enter here"
                 android:inputType="textPersonName" />
         </LinearLayout>
 
@@ -108,23 +111,24 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName7"
+            <TextView
+                android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Cost of Living"
+                android:gravity="center"
+                android:text="Cost Of Living"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobCOL"
+                android:id="@+id/entryOfferCOL"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="enter here"
                 android:inputType="textPersonName" />
         </LinearLayout>
 
@@ -133,23 +137,24 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName9"
+            <TextView
+                android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="center"
                 android:text="Yearly Salary"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobSalary"
+                android:id="@+id/entryOfferSalary"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="enter here"
                 android:inputType="textPersonName" />
         </LinearLayout>
 
@@ -158,23 +163,24 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName11"
+            <TextView
+                android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textStyle="bold"
-                tools:text="Yearly Bonus" />
+                android:gravity="center"
+                android:text="Yearly Bonus"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobBonus"
+                android:id="@+id/entryOfferBonus"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="enter here"
                 android:inputType="textPersonName" />
         </LinearLayout>
 
@@ -183,23 +189,24 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName13"
+            <TextView
+                android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="center"
                 android:text="Restricted Stock Units"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobRSU"
+                android:id="@+id/entryOfferRSU"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="enter here"
                 android:inputType="textPersonName" />
         </LinearLayout>
 
@@ -208,23 +215,24 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName15"
+            <TextView
+                android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="center"
                 android:text="Relocation Stipend"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobRelo"
+                android:id="@+id/entryOfferRelo"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="enter here"
                 android:inputType="textPersonName" />
         </LinearLayout>
 
@@ -233,23 +241,24 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName17"
-                android:layout_width="224dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Personal Choice Holidays"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/entryCurJobPCH"
+            <TextView
+                android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:gravity="center"
+                android:text="Personal Choice Holidays"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/entryOfferPCH"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:ems="10"
-                android:hint="enter here"
                 android:inputType="textPersonName" />
         </LinearLayout>
 
@@ -268,7 +277,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/saveOfferButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
