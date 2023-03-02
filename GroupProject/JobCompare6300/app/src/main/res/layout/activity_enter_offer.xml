@@ -307,7 +307,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button9"
+                    android:id="@+id/anotherOfferButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -331,7 +331,7 @@
                     app:cornerRadius="5dp" />
 
                 <Button
-                    android:id="@+id/button11"
+                    android:id="@+id/compareOfferButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
