@@ -14,6 +14,7 @@ public class Job {
     private float yearlySalaryAdjusted;
     private float yearlyBonusAdjusted;
     private int pto;
+    private float score;
 
     public String getTitle() {
         return title;
@@ -88,6 +89,25 @@ public class Job {
         calculateSalaryAdjusted();
         calculateBonusAdjusted();
     }
+
+    public Job(String title, String company, String location,
+               int costOfLiving, float yearlySalary, float yearlyBonus,
+               float rsu, float relocationStipend, int pto, boolean isCurrentJob, float score) {
+        this.title = title;
+        this.company = company;
+        this.location = location;
+        this.costOfLiving = costOfLiving;
+        this.yearlySalary = yearlySalary;
+        this.yearlyBonus = yearlyBonus;
+        this.rsu = rsu;
+        this.relocationStipend = relocationStipend;
+        this.pto = pto;
+        this.isCurrentJob = isCurrentJob;
+        this.score = score;
+        calculateSalaryAdjusted();
+        calculateBonusAdjusted();
+    }
+
 
     public float calculateScore(int salaryW, int bounsW, int rsuW, int stipendW, int ptoW){
         float sum = (float)(salaryW + bounsW + rsuW + stipendW + ptoW);
