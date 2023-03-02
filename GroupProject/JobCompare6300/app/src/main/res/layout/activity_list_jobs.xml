@@ -36,77 +36,26 @@
                 android:textSize="20sp" />
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="460dp" />
 
-            <CheckBox
-                android:id="@+id/checkBox3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Job Offer 1" />
+        <Button
+            android:id="@+id/CompareButton"
+            android:layout_width="match_parent"
+            android:layout_height="98dp"
+            android:insetLeft="50dp"
+            android:insetTop="10dp"
+            android:insetRight="50dp"
+            android:insetBottom="10dp"
+            android:text="Compare Selection"
+            android:textSize="20sp" />
 
-            <CheckBox
-                android:id="@+id/checkBox4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Job Offer 2" />
-
-            <CheckBox
-                android:id="@+id/checkBox5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Job Offer 3" />
-
-            <CheckBox
-                android:id="@+id/checkBox6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Current Offer"
-                android:textStyle="bold" />
-
-            <CheckBox
-                android:id="@+id/checkBox7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Job Offer 4" />
-
-            <CheckBox
-                android:id="@+id/checkBox8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Job Offer 5" />
-
-            <CheckBox
-                android:id="@+id/checkBox9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Job Offer 6" />
-
-            <CheckBox
-                android:id="@+id/checkBox10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Job Offer 7" />
-
-            <Button
-                android:id="@+id/CompareButton"
-                android:layout_width="match_parent"
-                android:layout_height="98dp"
-                android:insetLeft="50dp"
-                android:insetTop="10dp"
-                android:insetRight="50dp"
-                android:insetBottom="10dp"
-                android:text="Compare Selection"
-                android:textSize="20sp" />
-
-            <Button
-                android:id="@+id/ListMainMenuButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Main Menu" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/ListMainMenuButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Main Menu" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

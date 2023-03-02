@@ -100,7 +100,6 @@ public class CurrentJob extends AppCompatActivity {
                         error = true;
                     }
                     if (!error) {
-                        //TODO: Add create Current Job actions here
                         Job newOffer = new Job(offerTitle, offerCompany, offerLocation,
                                 offerCOL, offerSalary, offerBonus, offerRSU, offerRelo, offerPCH, true);
 

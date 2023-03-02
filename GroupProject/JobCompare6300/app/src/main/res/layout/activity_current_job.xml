@@ -33,14 +33,15 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName19"
+            <TextView
+                android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Job Title"
+                android:gravity="center_vertical"
+                android:text="Title"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -51,6 +52,7 @@
                 android:ems="10"
                 android:hint="enter here"
                 android:inputType="textPersonName" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -58,14 +60,15 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName3"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="237dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="center_vertical"
                 android:text="Company"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -76,6 +79,7 @@
                 android:ems="10"
                 android:hint="enter here"
                 android:inputType="textPersonName" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -83,14 +87,15 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName5"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="239dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="center_vertical"
                 android:text="Location"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -108,14 +113,15 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName7"
+            <TextView
+                android:id="@+id/textView22"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="center_vertical"
                 android:text="Cost of Living"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -133,14 +139,15 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName9"
+            <TextView
+                android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="center_vertical"
                 android:text="Yearly Salary"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -158,15 +165,16 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName11"
+            <TextView
+                android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textStyle="bold"
-                tools:text="Yearly Bonus" />
+                android:gravity="center_vertical"
+                android:text="Yearly Bonus"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/entryCurJobBonus"
@@ -183,14 +191,15 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName13"
+            <TextView
+                android:id="@+id/textView25"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="center_vertical"
                 android:text="Restricted Stock Units"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -208,14 +217,15 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName15"
+            <TextView
+                android:id="@+id/textView26"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="center_vertical"
                 android:text="Relocation Stipend"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -233,14 +243,15 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editTextTextPersonName17"
-                android:layout_width="224dp"
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="center_vertical"
                 android:text="Personal Choice Holidays"
+                android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
