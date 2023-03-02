@@ -113,6 +113,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public List<Job> getAll() {
 
+
         List<Job> list = new ArrayList<>();
         String query = " SELECT * FROM " + OFFER_TABLE;
 
@@ -120,6 +121,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //may not access it
         SQLiteDatabase db = this.getReadableDatabase();
 
+        //add score to the offer
+        //sort list
         Cursor cursor = db.rawQuery(query, null);
 
         //cursor.moveToFirst returns a true if there were items selected
@@ -129,6 +132,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             //proceed through the database one at a time
             while(cursor.moveToNext()) {
                 boolean isCurrentJob = cursor.getInt(10) == 1? true: false;
+
                 Job offer = new Job(cursor.getString(1), cursor.getString(2), cursor.getString(3),
                         cursor.getInt(4), cursor.getFloat(5), cursor.getFloat(6), cursor.getFloat(7),
                         cursor.getFloat(8), cursor.getInt(9), isCurrentJob);
