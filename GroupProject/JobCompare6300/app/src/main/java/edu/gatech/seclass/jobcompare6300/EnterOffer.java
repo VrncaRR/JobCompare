@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 public class EnterOffer extends AppCompatActivity {
     private EditText entryOfferTitle;
@@ -44,67 +46,51 @@ public class EnterOffer extends AppCompatActivity {
         saveOfferButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String offerTitle = entryOfferTitle.getText().toString();
-                String offerCompany = entryOfferCompany.getText().toString();
-                String offerLocation = entryOfferLocation.getText().toString();
-                String offerCOL = entryOfferCOL.getText().toString();
-                String offerSalary = entryOfferSalary.getText().toString();
-                String offerBonus = entryOfferBonus.getText().toString();
-                String offerRSU = entryOfferRSU.getText().toString();
-                String offerRelo = entryOfferRelo.getText().toString();
-                String offerPCH = entryOfferPCH.getText().toString();
 
+                String ERROR_MESSAGE = "Invalid Entry";
                 Boolean error = false;
-                //TODO: ADD Error Handling for Invalid Entries
-                if (offerTitle.length() == 0) {
-                    CharSequence errorMessage = "Invalid Entry";
-                    entryOfferTitle.setError(errorMessage);
-                    error = true;
-                }
-                if (offerCompany.length() == 0) {
-                    CharSequence errorMessage = "Invalid Entry";
-                    entryOfferCompany.setError(errorMessage);
-                    error = true;
-                }
-                if (offerLocation.length() == 0) {
-                    CharSequence errorMessage = "Invalid Entry";
-                    entryOfferLocation.setError(errorMessage);
-                    error = true;
-                }
-                if (offerCOL.length() == 0) {
-                    CharSequence errorMessage = "Invalid Entry";
-                    entryOfferCOL.setError(errorMessage);
-                    error = true;
-                }
-                if (offerSalary.length() == 0) {
-                    CharSequence errorMessage = "Invalid Entry";
-                    entryOfferSalary.setError(errorMessage);
-                    error = true;
-                }
-                if (offerBonus.length() == 0) {
-                    CharSequence errorMessage = "Invalid Entry";
-                    entryOfferBonus.setError(errorMessage);
-                    error = true;
-                }
-                if (offerRSU.length() == 0) {
-                    CharSequence errorMessage = "Invalid Entry";
-                    entryOfferRSU.setError(errorMessage);
-                    error = true;
-                }
-                if (offerRelo.length() == 0) {
-                    CharSequence errorMessage = "Invalid Entry";
-                    entryOfferRelo.setError(errorMessage);
-                    error = true;
-                }
-                if (offerPCH.length() == 0) {
-                    CharSequence errorMessage = "Invalid Entry";
-                    entryOfferPCH.setError(errorMessage);
-                    error = true;
+
+                try{
+                    String offerTitle = entryOfferTitle.getText().toString();
+                    String offerCompany = entryOfferCompany.getText().toString();
+                    String offerLocation = entryOfferLocation.getText().toString();
+                    int offerCOL = Integer.parseInt(entryOfferCOL.getText().toString());
+                    float offerSalary = Float.parseFloat(entryOfferSalary.getText().toString());
+                    float offerBonus = Float.parseFloat(entryOfferBonus.getText().toString());
+                    float offerRSU = Float.parseFloat(entryOfferRSU.getText().toString());
+                    float offerRelo = Float.parseFloat(entryOfferRelo.getText().toString());
+                    int offerPCH = Integer.parseInt(entryOfferPCH.getText().toString());
+
+                    if (offerTitle.length() == 0) {
+                        entryOfferTitle.setError(ERROR_MESSAGE);
+                        error = true;
+                    }
+                    if (offerCompany.length() == 0) {
+                        entryOfferCompany.setError(ERROR_MESSAGE);
+                        error = true;
+                    }
+                    if (offerLocation.length() == 0) {
+                        entryOfferLocation.setError(ERROR_MESSAGE);
+                        error = true;
+                    }
+                    if (!error) {
+                        //TODO: Add create Current Job actions here
+                        Job newOffer = new Job(offerTitle, offerCompany, offerLocation,
+                                offerCOL, offerSalary, offerBonus, offerRSU, offerRelo, offerPCH, false);
+
+                        //add job offer to database
+                        DatabaseHelper dbHelper = new DatabaseHelper(EnterOffer.this);
+
+                        if(dbHelper.addJobOffer(newOffer)) {
+                            Toast.makeText(EnterOffer.this, "Successfully add a new job offer!", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(EnterOffer.this, "fail to add db", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }  catch(Exception e) {
+                    Toast.makeText(EnterOffer.this, "Unable to add new job offer, please check input!", Toast.LENGTH_LONG).show();
                 }
 
-                if (!error) {
-                    //TODO: Add create Current Job actions here
-                }
             }
         });
     }
