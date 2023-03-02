@@ -65,11 +65,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, "JobOfferComparison.db", null, 1);
     }
 
+    public void deleteDB(@Nullable Context context) {
+        context.deleteDatabase("JobOfferComparison.db");
+    }
+
     //this is called the first time a database is accessed. There should be code in there to create a new database
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createJobOfferTableStatement = "CREATE TABLE " + OFFER_TABLE + " ( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+        String createJobOfferTableStatement = "CREATE TABLE " + OFFER_TABLE + " ( " + COLUMN_ID + " INTEGER PRIMARY KEY, "
                 + COLUMN_TITLE + " TEXT, "
                 + COLUMN_COMPANY + " TEXT, "
                 + COLUMN_LOCATION + " TEXT, "
@@ -119,6 +123,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         ContentValues cv = new ContentValues();
 
+        //set the id = 1, always
+        cv.put(COLUMN_ID, 1);
         cv.put(COLUMN_SALARY_WEIGHT, settings.getSalaryWeight());
         cv.put(COLUMN_BONUS_WEIGHT, settings.getBonusWeight());
         cv.put(COLUMN_RSU_WEIGHT, settings.getRSUWeight());
@@ -136,6 +142,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_IS_CURRENT_JOB, offer.isCurrentJob());
 
         long insert = db.insert(OFFER_TABLE, null, cv);
+        //close db when done
+        db.close();
 
         return insert==-1L? false: true;
     }
@@ -149,6 +157,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {"1"};
 
         int count = db.update(OFFER_TABLE, cv, selection, selectionArgs);
+        //close db when done
+        db.close();
         return count == 1? true: false;
     }
     public boolean addComparisonSetting(ComparisonSettings settings) {
@@ -157,7 +167,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues cv = extractComparisonSettingsContentValues(settings);
 
         long insert = db.insert(COMPARISON_TABLE, null, cv);
-
+        //close db when done
+        db.close();
         return insert==-1L? false: true;
     }
 
@@ -171,6 +182,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {"1"};
 
         int count = db.update(COMPARISON_TABLE, cv, selection, selectionArgs);
+        //close db when done
+        db.close();
         return count == 1? true: false;
     }
     public List<Job> getAll() {
@@ -204,8 +217,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             //failure, don't add anything to the list
         }
-
+        //close both cursor and db when done
         cursor.close();
+        db.close();
 
         return list;
     }
@@ -225,8 +239,52 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     cursor.getInt(4), cursor.getFloat(5), cursor.getFloat(6), cursor.getFloat(7),
                     cursor.getFloat(8), cursor.getInt(9), isCurrentJob);
         }
+        //close both cursor and db when done
+        cursor.close();
+        db.close();
         return currentJob;
     }
 
+    public ComparisonSettings getCurrentSetting() {
 
+        //get current comparison setting, if there is no current comparison setting,
+        //return default comparison setting
+        String query = " SELECT * FROM " + COMPARISON_TABLE + " WHERE " + COLUMN_ID + " = 1";
+        ComparisonSettings currentSetting = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+
+
+        if(cursor.moveToFirst()) {
+            //current comparison setting exists, return current comparison setting
+            currentSetting = new ComparisonSettings(cursor.getInt(1), cursor.getInt(2), cursor.getInt(3),
+                    cursor.getInt(4), cursor.getInt(5));
+        } else {
+
+            //no current comparison setting, return default settings
+            //and add the default setting to db
+            currentSetting = new ComparisonSettings();
+            addComparisonSetting(currentSetting);
+
+        }
+        //close both cursor and db when done
+        cursor.close();
+        db.close();
+        return currentSetting;
+    }
+
+    public boolean resetComparisonSetting()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String deleteStatement = " DELETE FROM " + COMPARISON_TABLE;
+        db.execSQL(deleteStatement);
+
+        ContentValues cv = extractComparisonSettingsContentValues(new ComparisonSettings());
+        long insert = db.insert(COMPARISON_TABLE, null, cv);
+
+        //close db when done
+        db.close();
+        return insert==-1L? false: true;
+    }
 }
