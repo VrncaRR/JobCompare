@@ -37,6 +37,7 @@ public class EnterOffer extends AppCompatActivity {
         entryOfferPCH = (EditText) findViewById(R.id.entryOfferPCH);
 
         configureOfferMainMenuButton();
+        configureCancelButton();
         handleSaveOffer();
 
     }
@@ -95,6 +96,23 @@ public class EnterOffer extends AppCompatActivity {
         });
     }
 
+    public void configureCancelButton(){
+        Button offerCancelButton = (Button) findViewById(R.id.offerCancelButton);
+        offerCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                entryOfferTitle.setText("");
+                entryOfferCompany.setText("");
+                entryOfferLocation.setText("");
+                entryOfferCOL.setText("");
+                entryOfferSalary.setText("");
+                entryOfferBonus.setText("");
+                entryOfferRSU.setText("");
+                entryOfferRelo.setText("");
+                entryOfferPCH.setText("");
+            }
+        });
+    }
     /*
     NAVIGATION
      */
