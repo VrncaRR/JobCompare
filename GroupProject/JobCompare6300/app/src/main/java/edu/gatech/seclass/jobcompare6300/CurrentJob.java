@@ -61,9 +61,54 @@ public class CurrentJob extends AppCompatActivity {
 
                 Boolean error = false;
                 //TODO: ADD Error Handling for Invalid Entries
-
-                //TODO: Add create Current Job actions here
-
+                if (curJobTitle.length() == 0) {
+                    CharSequence errorMessage = "Invalid Entry";
+                    entryCurJobTitle.setError(errorMessage);
+                    error = true;
+                }
+                if (curJobCompany.length() == 0) {
+                    CharSequence errorMessage = "Invalid Entry";
+                    entryCurJobCompany.setError(errorMessage);
+                    error = true;
+                }
+                if (curJobLocation.length() == 0) {
+                    CharSequence errorMessage = "Invalid Entry";
+                    entryCurJobLocation.setError(errorMessage);
+                    error = true;
+                }
+                if (curJobCOL.length() == 0) {
+                    CharSequence errorMessage = "Invalid Entry";
+                    entryCurJobCOL.setError(errorMessage);
+                    error = true;
+                }
+                if (curJobSalary.length() == 0) {
+                    CharSequence errorMessage = "Invalid Entry";
+                    entryCurJobSalary.setError(errorMessage);
+                    error = true;
+                }
+                if (curJobBonus.length() == 0) {
+                    CharSequence errorMessage = "Invalid Entry";
+                    entryCurJobBonus.setError(errorMessage);
+                    error = true;
+                }
+                if (curJobRSU.length() == 0) {
+                    CharSequence errorMessage = "Invalid Entry";
+                    entryCurJobRSU.setError(errorMessage);
+                    error = true;
+                }
+                if (curJobRelo.length() == 0) {
+                    CharSequence errorMessage = "Invalid Entry";
+                    entryCurJobRelo.setError(errorMessage);
+                    error = true;
+                }
+                if (curJobPCH.length() == 0) {
+                    CharSequence errorMessage = "Invalid Entry";
+                    entryCurJobPCH.setError(errorMessage);
+                    error = true;
+                }
+                if(!error) {
+                    //TODO: Add create Current Job actions here
+                }
             }
         });
     }
