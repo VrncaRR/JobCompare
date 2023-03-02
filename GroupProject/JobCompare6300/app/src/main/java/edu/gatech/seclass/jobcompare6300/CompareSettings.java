@@ -9,10 +9,14 @@ import android.widget.Button;
 
 public class CompareSettings extends AppCompatActivity {
 
+    DatabaseHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compare_settings);
+
+
 
         configureSettingsCancelButton();
     }

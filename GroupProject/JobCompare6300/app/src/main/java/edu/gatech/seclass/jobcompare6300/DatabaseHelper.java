@@ -16,6 +16,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     /*schema:
+    OFFER_TABLE
     ID: 0
     TITLE: 1
     COMPANY: 2
@@ -27,6 +28,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     RELOCATION_STIPEND 8
     PTO 9
     IS_CURRENT_JOB 10
+
+    COMPARISON_SETTING_TABLE SCHEMA
+    ID: 0
+    SALARY_WEIGHT 1
+    BONUS_WEIGHT 2
+    RSU_WEIGHT 3
+    RELOCATION_STIPEND_WEIGHT 4
+    PTO_WEIGHT 5
+
+    comparison setting table: only one record with id = 1 will be kept in the table.
+    whenever the comparison setting is updated,
+    the record in the comparison_setting_table will be updated, too.
+
     * */
     private static final String OFFER_TABLE = "OFFER_TABLE";
     private static final String COLUMN_TITLE = "TITLE";
@@ -40,6 +54,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PTO = "PTO";
     private static final String COLUMN_IS_CURRENT_JOB = "IS_CURRENT_JOB";
     private static final String COLUMN_ID = "ID";
+    private static final String COMPARISON_TABLE = "COMPARISON_TABLE";
+    private static final String COLUMN_SALARY_WEIGHT = "SALARY_WEIGHT";
+    private static final String COLUMN_BONUS_WEIGHT = "BONUS_WEIGHT";
+    private static final String COLUMN_RSU_WEIGHT = "RSU_WEIGHT";
+    private static final String COLUMN_RELOCATION_STIPEND_WEIGHT = "RELOCATION_STIPEND_WEIGHT";
+    private static final String COLUMN_PTO_WEIGHT = "PTO_WEIGHT";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, "JobOfferComparison.db", null, 1);
@@ -49,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createTableStatement = "CREATE TABLE " + OFFER_TABLE + " ( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+        String createJobOfferTableStatement = "CREATE TABLE " + OFFER_TABLE + " ( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COLUMN_TITLE + " TEXT, "
                 + COLUMN_COMPANY + " TEXT, "
                 + COLUMN_LOCATION + " TEXT, "
@@ -61,7 +81,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_PTO + " INTEGER, "
                 + COLUMN_IS_CURRENT_JOB + " INTEGER )";
 
-        db.execSQL(createTableStatement);
+        String createComparisonSettingStatement = "CREATE TABLE " + COMPARISON_TABLE + " ( " + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_SALARY_WEIGHT + " INTEGER, " +
+                COLUMN_BONUS_WEIGHT + " INTEGER, " +
+                COLUMN_RSU_WEIGHT + " INTEGER, " +
+                COLUMN_RELOCATION_STIPEND_WEIGHT + " INTEGER, " +
+                COLUMN_PTO_WEIGHT + " INTEGER )";
+
+        db.execSQL(createJobOfferTableStatement);
+        db.execSQL(createComparisonSettingStatement);
     }
 
     //this is called if the database version number changes. It prevents previous users apps from crashing when you change the database design
@@ -70,7 +98,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    private ContentValues createContentValues(Job offer) {
+    private ContentValues extractOfferContentValues(Job offer) {
 
         ContentValues cv = new ContentValues();
 
@@ -87,10 +115,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cv;
     }
 
+    private ContentValues extractComparisonSettingsContentValues(ComparisonSettings settings) {
+
+        ContentValues cv = new ContentValues();
+
+        cv.put(COLUMN_SALARY_WEIGHT, settings.getSalaryWeight());
+        cv.put(COLUMN_BONUS_WEIGHT, settings.getBonusWeight());
+        cv.put(COLUMN_RSU_WEIGHT, settings.getRSUWeight());
+        cv.put(COLUMN_RELOCATION_STIPEND_WEIGHT, settings.getRelocationStipendWeight());
+        cv.put(COLUMN_PTO_WEIGHT, settings.getPTOWeight());
+
+        return cv;
+    }
+
     public boolean addJobOffer(Job offer) {
 
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = createContentValues(offer);
+        ContentValues cv = extractOfferContentValues(offer);
 
         cv.put(COLUMN_IS_CURRENT_JOB, offer.isCurrentJob());
 
@@ -98,19 +139,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return insert==-1L? false: true;
     }
-
     public boolean updateCurrentJob(Job offer) {
 
+        //the current job record's COLUMN_IS_CURRENT_JOB is always 1,
+        //select COLUMN_IS_CURRENT_JOB = 1 from database and update the record
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = createContentValues(offer);
+        ContentValues cv = extractOfferContentValues(offer);
         String selection = COLUMN_IS_CURRENT_JOB + " =? ";
         String[] selectionArgs = {"1"};
 
         int count = db.update(OFFER_TABLE, cv, selection, selectionArgs);
         return count == 1? true: false;
     }
+    public boolean addComparisonSetting(ComparisonSettings settings) {
+        //add new comparison setting to the database
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = extractComparisonSettingsContentValues(settings);
 
+        long insert = db.insert(COMPARISON_TABLE, null, cv);
 
+        return insert==-1L? false: true;
+    }
+
+    public boolean updateComparisonSetting(ComparisonSettings settings) {
+
+        //only one setting record will be kept,  id = 1,
+        //select id = 1 from database and update the comparison setting record
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = extractComparisonSettingsContentValues(settings);
+        String selection = COLUMN_ID + " =? ";
+        String[] selectionArgs = {"1"};
+
+        int count = db.update(COMPARISON_TABLE, cv, selection, selectionArgs);
+        return count == 1? true: false;
+    }
     public List<Job> getAll() {
 
 
