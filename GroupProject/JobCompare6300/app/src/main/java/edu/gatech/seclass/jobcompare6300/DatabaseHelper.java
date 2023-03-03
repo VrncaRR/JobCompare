@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -42,6 +43,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     the record in the comparison_setting_table will be updated, too.
 
     * */
+
+    private static final int DATABASE_VERSION = 2;
     private static final String OFFER_TABLE = "OFFER_TABLE";
     private static final String COLUMN_TITLE = "TITLE";
     private static final String COLUMN_COMPANY = "COMPANY";
@@ -62,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PTO_WEIGHT = "PTO_WEIGHT";
 
     public DatabaseHelper(@Nullable Context context) {
-        super(context, "JobOfferComparison.db", null, 1);
+        super(context, "JobOfferComparison.db", null, DATABASE_VERSION);
     }
 
     public void deleteDB(@Nullable Context context) {

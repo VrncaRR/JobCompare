@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListJobs extends AppCompatActivity {
@@ -34,11 +36,18 @@ public class ListJobs extends AppCompatActivity {
 
 
     void setAdapter(){
+        Log.d("adaptertag", "adapter");
         jobListAdapter adapter = new jobListAdapter(jobList);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+
+        List<Job> chosenJobs = adapter.getSelectedJobs();
+        Log.d("JOBTAG", "chosen job entry");
+        for (Job chosenJob : chosenJobs) {
+            Log.d("JOBTAG", "chosen job " + chosenJob.getTitle());
+        }
     }
 
     public void configureListMainMenuButton(){
@@ -56,10 +65,42 @@ public class ListJobs extends AppCompatActivity {
         compareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                List<Job> selections = ((jobListAdapter) recyclerView.getAdapter()).getSelectedJobs();
 
-                startActivity(new Intent(ListJobs.this, CompareJobs.class));
+                // to load to the bundle
+                ArrayList<String> firstJob = new ArrayList<>();
+                processJobData(selections.get(0), firstJob);
+                ArrayList<String> secondJob = new ArrayList<>();
+                processJobData(selections.get(1), secondJob);
+
+                Intent i = new Intent(ListJobs.this, CompareJobs.class);
+                Bundle extras = new Bundle();
+                extras.putStringArrayList("First", firstJob);
+                extras.putStringArrayList("Second", secondJob);
+                i.putExtras(extras);
+                startActivity(i);
+//                startActivity(new Intent(ListJobs.this, CompareJobs.class));
             }
         });
     }
 
-}
+    // helper for loading data into arraylist bundle
+    public ArrayList<String> processJobData(Job jobToProcess, ArrayList<String> jobDataHolder) {
+
+        jobDataHolder.add(jobToProcess.getTitle());
+        jobDataHolder.add(jobToProcess.getCompany());
+        jobDataHolder.add(jobToProcess.getLocation());
+        jobDataHolder.add(String.valueOf(jobToProcess.getCostOfLiving()));
+        jobDataHolder.add(String.valueOf(jobToProcess.getYearlySalaryAdjusted()));
+        jobDataHolder.add(String.valueOf(jobToProcess.getYearlyBonusAdjusted()));
+        jobDataHolder.add(String.valueOf(jobToProcess.getRsu()));
+        jobDataHolder.add(String.valueOf(jobToProcess.getRelocationStipend()));
+        jobDataHolder.add(String.valueOf(jobToProcess.getPto()));
+
+        return jobDataHolder;
+    } //end processJobData()
+
+} //end class ListJobs
+
+
+

@@ -81,7 +81,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobTitle"
+                android:id="@+id/J1Title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -90,7 +90,7 @@
                 android:text="J1_Title" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName21"
+                android:id="@+id/J2Title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -116,22 +116,22 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobCompany"
+                android:id="@+id/J1Company"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="J1_Comany" />
+                android:text="J1_Company" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName22"
+                android:id="@+id/J2Company"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="J1_Comany" />
+                android:text="J2_Company" />
         </LinearLayout>
 
         <LinearLayout
@@ -150,22 +150,22 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobLocation"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="J_Loc" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName23"
+                android:id="@+id/J1Loc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="J1_Loc" />
+
+            <EditText
+                android:id="@+id/J2Loc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="J2_Loc" />
         </LinearLayout>
 
         <LinearLayout
@@ -184,7 +184,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobCOL"
+                android:id="@+id/J1COL"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -193,7 +193,7 @@
                 android:text="J1_COL" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName24"
+                android:id="@+id/J2COL"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -218,7 +218,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobSalary"
+                android:id="@+id/J1Salary"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -227,7 +227,7 @@
                 android:text="J1_Salary" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName25"
+                android:id="@+id/J2Salary"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -249,10 +249,10 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:textStyle="bold"
-                tools:text="Yearly Bonus" />
+                android:text="Yearly Bonus" />
 
             <EditText
-                android:id="@+id/entryCurJobBonus"
+                android:id="@+id/J1Bonus"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -261,7 +261,7 @@
                 android:text="J1_Bonus" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName26"
+                android:id="@+id/J2Bonus"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -287,16 +287,16 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobRSU"
+                android:id="@+id/J1RSU"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="J_RSU" />
+                android:text="J1_RSU" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName27"
+                android:id="@+id/J2RSU"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -321,7 +321,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobRelo"
+                android:id="@+id/J1Relo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -330,7 +330,7 @@
                 android:text="J1_Relo" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName29"
+                android:id="@+id/J2Relo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -355,7 +355,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/entryCurJobPCH"
+                android:id="@+id/J1Holiday"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -364,7 +364,7 @@
                 android:text="J1_Holiday" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName30"
+                android:id="@+id/J2Holiday"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
