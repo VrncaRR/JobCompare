@@ -1,6 +1,11 @@
 package edu.gatech.seclass.jobcompare6300;
 
-public class Job {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+public class Job implements Parcelable{
 
     private String title;
     private String company;
@@ -15,6 +20,7 @@ public class Job {
     private float yearlyBonusAdjusted;
     private int pto;
     private float score;
+    private boolean isSelected;
 
     private void calculateSalaryAdjusted() {
         this.yearlySalaryAdjusted = (this.yearlySalary/costOfLiving)*100;
@@ -41,25 +47,37 @@ public class Job {
         calculateBonusAdjusted();
     }
 
-    //constructor 2 includes score
-    public Job(String title, String company, String location,
-               int costOfLiving, float yearlySalary, float yearlyBonus,
-               float rsu, float relocationStipend, int pto, boolean isCurrentJob, float score) {
-        this.title = title;
-        this.company = company;
-        this.location = location;
-        this.costOfLiving = costOfLiving;
-        this.yearlySalary = yearlySalary;
-        this.yearlyBonus = yearlyBonus;
-        this.rsu = rsu;
-        this.relocationStipend = relocationStipend;
-        this.pto = pto;
-        this.isCurrentJob = isCurrentJob;
-        this.score = score;
-        calculateSalaryAdjusted();
-        calculateBonusAdjusted();
+    //constructor  2 use parcel
+    public Job(Parcel parcel) {
+        this.title = parcel.readString();
+        this.company = parcel.readString();
+        this.location = parcel.readString();
+        this.costOfLiving = parcel.readInt();
+        this.yearlySalary = parcel.readFloat();
+        this.yearlyBonus=parcel.readFloat();
+        this.rsu=parcel.readFloat();
+        this.relocationStipend=parcel.readFloat();
+        this.isCurrentJob=parcel.readBoolean();
+        this.yearlySalaryAdjusted=parcel.readFloat();
+        this.yearlyBonusAdjusted=parcel.readFloat();
+        this.pto = parcel.readInt();
+        this.score =parcel.readFloat();
+        this.isSelected = parcel.readBoolean();
+
     }
 
+
+    public static final Parcelable.Creator<Job> CREATOR = new Parcelable.Creator<Job>() {
+        @Override
+        public Job createFromParcel(Parcel in) {
+            return new Job(in);
+        }
+
+        @Override
+        public Job[] newArray(int size) {
+            return new Job[size];
+        }
+    };
 
     public void calculateScore(int salaryW, int bounsW, int rsuW, int stipendW, int ptoW){
         float sum = (float)(salaryW + bounsW + rsuW + stipendW + ptoW);
@@ -163,4 +181,37 @@ public class Job {
     public float getScore() {
         return score;
     }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+
+        parcel.writeString(title);
+        parcel.writeString(company);
+        parcel.writeString(location);
+        parcel.writeInt(costOfLiving);
+        parcel.writeFloat(yearlySalary);
+        parcel.writeFloat(yearlyBonus);
+        parcel.writeFloat(rsu);
+        parcel.writeFloat(relocationStipend);
+        parcel.writeBoolean(isCurrentJob);
+        parcel.writeFloat(yearlySalaryAdjusted);
+        parcel.writeFloat(yearlyBonusAdjusted);
+        parcel.writeInt(pto);
+        parcel.writeFloat(score);
+        parcel.writeBoolean(isSelected);
+    }
+
 }

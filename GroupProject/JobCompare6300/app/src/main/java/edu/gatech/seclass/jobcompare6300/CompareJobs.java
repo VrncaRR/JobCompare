@@ -43,10 +43,17 @@ public class CompareJobs extends AppCompatActivity {
         setContentView(R.layout.activity_compare_jobs);
 
         //Unpack bundle
-        Intent i = getIntent();
-        ArrayList<String> firstJobData = i.getStringArrayListExtra("First");
-        ArrayList<String> secondJobData = i.getStringArrayListExtra("Second");
+        Intent in = getIntent();
+        ArrayList<Job> selectedJobs = in.getParcelableArrayListExtra("jobList");
+        Job firstJob = selectedJobs.get(0), secondJob = selectedJobs.get(1);
+        setValue(firstJob,  secondJob);
 
+
+        configureCompareMainMenuButton();
+        configureAnotherButton();
+    }
+
+    void setValue(Job firstJob, Job secondJob) {
 
         firstTitle = (EditText) findViewById(R.id.J1Title);
         secondTitle = (EditText) findViewById(R.id.J2Title);
@@ -68,29 +75,27 @@ public class CompareJobs extends AppCompatActivity {
         secondPTO = (EditText) findViewById(R.id.J2Holiday);
 
 
-        firstTitle.setText(firstJobData.get(0));
-        firstCompany.setText(firstJobData.get(1));
-        firstLoc.setText(firstJobData.get(2));
-        firstCOL.setText(firstJobData.get(3));
-        firstSalary.setText(firstJobData.get(4));
-        firstBonus.setText(firstJobData.get(5));
-        firstRSU.setText(firstJobData.get(6));
-        firstStipend.setText(firstJobData.get(7));
-        firstPTO.setText(firstJobData.get(8));
-
-        secondTitle.setText(secondJobData.get(0));
-        secondCompany.setText(secondJobData.get(1));
-        secondLoc.setText(secondJobData.get(2));
-        secondCOL.setText(secondJobData.get(3));
-        secondSalary.setText(secondJobData.get(4));
-        secondBonus.setText(secondJobData.get(5));
-        secondRSU.setText(secondJobData.get(6));
-        secondStipend.setText(secondJobData.get(7));
-        secondPTO.setText(secondJobData.get(8));
+        firstTitle.setText(firstJob.getTitle());
+        firstCompany.setText(firstJob.getCompany());
+        firstLoc.setText(firstJob.getLocation());
+        firstCOL.setText(String.valueOf(firstJob.getCostOfLiving()));
+        firstSalary.setText(String.valueOf(firstJob.getYearlySalaryAdjusted()));
+        firstBonus.setText(String.valueOf(firstJob.getYearlyBonusAdjusted()));
+        firstRSU.setText(String.valueOf(firstJob.getRsu()));
+        firstStipend.setText(String.valueOf(firstJob.getRelocationStipend()));
+        firstPTO.setText(String.valueOf(firstJob.getPto()));
 
 
-        configureCompareMainMenuButton();
-        configureAnotherButton();
+        secondTitle.setText(secondJob.getTitle());
+        secondCompany.setText(secondJob.getCompany());
+        secondLoc.setText(secondJob.getLocation());
+        secondCOL.setText(String.valueOf(secondJob.getCostOfLiving()));
+        secondSalary.setText(String.valueOf(secondJob.getYearlySalaryAdjusted()));
+        secondBonus.setText(String.valueOf(secondJob.getYearlyBonusAdjusted()));
+        secondRSU.setText(String.valueOf(secondJob.getRsu()));
+        secondStipend.setText(String.valueOf(secondJob.getRelocationStipend()));
+        secondPTO.setText(String.valueOf(secondJob.getPto()));
+
     }
 
     public void configureCompareMainMenuButton(){
