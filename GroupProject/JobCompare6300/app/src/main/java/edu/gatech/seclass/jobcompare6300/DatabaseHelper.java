@@ -191,8 +191,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public List<Job> getAll() {
 
-
-
         List<Job> list = new ArrayList<>();
         String query = " SELECT * FROM " + OFFER_TABLE;
 

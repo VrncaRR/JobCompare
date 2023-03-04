@@ -10,6 +10,7 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -27,10 +28,16 @@ public class EnterOfferActivityInstrumentedTest {
     // Verify that the edit text fields used in the enteroffer screen are blank after choosing "add another offer"
     @Test
     public void verifyEmptyInputs() {
-        //specifies the button with id = R.id.anotherOfferButton
         onView(withId(R.id.anotherOfferButton)).perform(click());
-        //specifies the edittext with id = R.id.entryOfferTitle
         onView(withId(R.id.entryOfferTitle)).check(matches(withText("")));
+        onView(withId(R.id.entryOfferCompany)).check(matches(withText("")));
+        onView(withId(R.id.entryOfferLocation)).check(matches(withText("")));
+        onView(withId(R.id.entryOfferCOL)).check(matches(withText("")));
+        onView(withId(R.id.entryOfferSalary)).check(matches(withText("")));
+        onView(withId(R.id.entryOfferRSU)).check(matches(withText("")));
+        onView(withId(R.id.entryOfferTitle)).check(matches(withText("")));
+        onView(withId(R.id.entryOfferRelo)).check(matches(withText("")));
+        onView(withId(R.id.entryOfferPCH)).check(matches(withText("")));
     }
 
     // Verify that error message is set if an offer title of length 0 is attempted.
