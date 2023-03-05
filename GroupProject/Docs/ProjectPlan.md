@@ -39,7 +39,7 @@ will be accessible from the UI.
 - Activity Description
   - This phase is primarily for testing and validation of the program. Upon completion the program will be ready for 
 final release.
-- *ntrance Criteria
+- Entrance Criteria
   - Fully functioning program, back-end and front end are fully integrated.
 - Exit Criteria
   - Product and user testing complete, and project is fully ready for release.
