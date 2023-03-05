@@ -27,11 +27,11 @@ The system is used on a mobile phone (Google Pixel 6) that runs Android 12. The 
 
 
 There are three components, Comparison, Job Offer and Job offer database.<br>
-Job offer component provides functionalities such as enter and edit job offers. Comparison component provides functionalities such as adjust and compare job offers. And Job offer database component stores the job offers and comparison settings.                                                                               
+Job offer component provides functionalities such as enter and edit job offers. Comparison component provides functionalities such as adjust comparison setting. And Job offer database component stores the job offers and comparison settings.                                                                               
 ### 2.2 Deployment Diagram
 
-![image info](./image/deployment.png)
-The diagram shows the deployment of andriod application. There is an apk. Within the apk, there are compiled classes, compiled resources, uncompiled resources, and deployment spec file. The apk will be deployed in Android execution environment. 
+![image info](./image/deployment_0305.png)
+The diagram shows the deployment of android application. There is an apk. Within the apk, there are compiled classes, compiled resources, uncompiled resources, and deployment spec file. The apk will be deployed in Android execution environment. 
 
 ## 3 Low-Level Design
 
@@ -40,7 +40,7 @@ The diagram shows the deployment of andriod application. There is an apk. Within
 ### 3.1 Class Diagram
 
 Bellow is a UML diagram describing the different classes that will be implemented in this program.
-![image info](./image/UML_Diagram.png)
+![image info](./image/class_diagram_0305.png)
 
 ## 4 User Interface Design
 ![image info](./image/UI_MainMenu.png)
