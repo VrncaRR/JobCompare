@@ -47,7 +47,6 @@ public class DatabaseHelperTest {
         assertEquals(5000, jobs.get(0).getRelocationStipend(), 0);
         assertEquals(20, jobs.get(0).getPto(), 0);
         assertFalse(jobs.get(0).isCurrentJob());
-
     }
 
     @Test
@@ -66,4 +65,5 @@ public class DatabaseHelperTest {
         assertEquals(20, currJobResult.getPto(), 0);
         assertTrue(currJobResult.isCurrentJob());
     }
+
 }

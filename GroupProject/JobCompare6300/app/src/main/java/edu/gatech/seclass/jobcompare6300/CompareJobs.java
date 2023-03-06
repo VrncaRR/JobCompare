@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 public class CompareJobs extends AppCompatActivity {
 
     private EditText firstTitle;

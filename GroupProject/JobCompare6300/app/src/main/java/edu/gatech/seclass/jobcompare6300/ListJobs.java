@@ -44,10 +44,10 @@ public class ListJobs extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         List<Job> chosenJobs = adapter.getSelectedJobs();
-        Log.d("JOBTAG", "chosen job entry");
-        for (Job chosenJob : chosenJobs) {
-            Log.d("JOBTAG", "chosen job " + chosenJob.getTitle());
-        }
+//        Log.d("JOBTAG", "chosen job entry");
+//        for (Job chosenJob : chosenJobs) {
+//            Log.d("JOBTAG", "chosen job " + chosenJob.getTitle());
+//        }
     }
 
     public void configureListMainMenuButton(){
