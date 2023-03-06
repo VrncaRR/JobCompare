@@ -25,9 +25,10 @@ public class EnterOfferActivityInstrumentedTest {
     @Rule
     public ActivityScenarioRule<EnterOffer> activityTestRule = new ActivityScenarioRule<EnterOffer>(EnterOffer.class);
 
-    // Verify that the edit text fields used in the enteroffer screen are blank after choosing "add another offer"
+    // Verify that data entry fields are reset to be blank after 1) a job offer is added and
+    // 2) the user chooses "add another offer"
     @Test
-    public void verifyEmptyInputs() {
+    public void verifyEmptyInputsAddAnother() {
         onView(withId(R.id.anotherOfferButton)).perform(click());
         onView(withId(R.id.entryOfferTitle)).check(matches(withText("")));
         onView(withId(R.id.entryOfferCompany)).check(matches(withText("")));
@@ -40,19 +41,72 @@ public class EnterOfferActivityInstrumentedTest {
         onView(withId(R.id.entryOfferPCH)).check(matches(withText("")));
     }
 
-    // Verify that error message is set if an offer title of length 0 is attempted.
+    // Verify that error message appears if the user tries to add a job offer with any empty fields.
     @Test
-    public void verifyEmptyTitleError() {
+    public void verifyEmptyOfferError() {
         onView(withId(R.id.entryOfferTitle)).perform(replaceText(""));
         onView(withId(R.id.saveOfferButton)).perform(click());
         onView(withId(R.id.entryOfferTitle)).check(matches(withText("Invalid Entry")));
     }
 
+    // erify that error message appears if the user tries to add or edit a current job with any empty fields.
     @Test
-    public void verify() {
+    public void verifyEmptyCurJobError() {
         onView(withId(R.id.entryOfferTitle)).perform(replaceText(""));
         onView(withId(R.id.saveOfferButton)).perform(click());
         onView(withId(R.id.entryOfferTitle)).check(matches(withText("Invalid Entry")));
     }
+
+    // Verify the correct data fields are shown when selecting the "add another job" button
+    @Test
+    public void verifyOfferDataFieldsShown() {
+
+    }
+
+    // Verify the correct data fields are shown when selecting the "add/edit a current job" button
+    @Test
+    public void verifyCurJobDataFieldsShown() {
+
+    }
+
+    // Verify that entering details of a current job (for the first time) and hitting the cancel button
+        // does not result in the details persisting in the text fields.
+    @Test
+    public void verifyCurJobClearDataOnCancel() {
+
+    }
+
+    // Verify that entering details of a job offer and hitting the cancel button
+    // does not result in the details persisting in the text fields.
+    @Test
+    public void verifyOfferClearDataOnCancel() {
+
+    }
+
+    // Verify that adding a job results in that job being present in the db
+    @Test
+    public void verifyAddCurJobToDatabase() {
+
+    }
+
+    // Verify that adding a job offer results in that job being present in the db
+    @Test
+    public void verifyAddOfferToDatabase() {
+
+    }
+
+    // Verify the correct buttons are shown on the "add a job offer" screen
+    @Test
+    public void verifyJobOfferBtnsShown() {
+
+    }
+
+    // Verify the correct buttons are shown on the "add/edit current job" screen
+    @Test
+    public void verifyCurJobBtnsShown() {
+
+    }
 }
+
+
 

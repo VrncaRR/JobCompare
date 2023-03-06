@@ -1,6 +1,8 @@
 package edu.gatech.seclass.jobcompare6300;
 
-public class ComparisonSettings {
+import android.app.Activity;
+
+public class ComparisonSettings extends Activity {
 
     private int salaryWeight=1;
     private int bonusWeight=1;
