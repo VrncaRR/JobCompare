@@ -1,8 +1,9 @@
 # Use Case Model
 
-*This is the template for your use case model. The parts in italics are concise explanations of what should go in the corresponding sections and should not appear in the final document.*
-
 **Author**: Team 074
+
+**Version**: 2.0
+- Removed template text
 
 ## 1 Use Case Diagram
 
@@ -36,9 +37,9 @@ If the user exits without saving the adjusted weights, the adjusted weights wonâ
 ### Use case: Compare job offers
 User log in to the system.<br>
 System shows a user interface of a list of job offers, displayed as Title and Company, ranked from best to worst based on the weighted score, and including the current job (if present), clearly indicated.<br>
-User selects two jobs to compare and trigger the comparison.<br>
+User selects exact two jobs to compare and trigger the comparison.<br>
 System shows a table comparing the two jobs, displaying details for each job.<br>
+User performs another comparison or goes back to the main menu.<br>
 If there is only one job in the system, system will display the detail of the job.<br>
 If there is no job in the system, system will display an empty table.<br>
-User performs another comparison or goes back to the main menu.<br>
 

@@ -15,7 +15,7 @@ import java.util.List;
 public class jobListAdapter extends RecyclerView.Adapter<jobListAdapter.jobViewHolder> {
 
     private List<Job> jobList;
-    private ArrayList<Job> selectedJobs = new ArrayList<>();
+    private ArrayList<Integer> selectedJobs = new ArrayList<>();
 
 
     public jobListAdapter(List<Job> jobList) {
@@ -27,7 +27,7 @@ public class jobListAdapter extends RecyclerView.Adapter<jobListAdapter.jobViewH
 
         private TextView titleText;
         private TextView companyText;
-        private TextView scoreText;
+
         private TextView currentText;
 
 
@@ -37,7 +37,7 @@ public class jobListAdapter extends RecyclerView.Adapter<jobListAdapter.jobViewH
             titleText = view.findViewById(R.id.titleView);
             companyText = view.findViewById(R.id.companyView);
             currentText = view.findViewById(R.id.isCurrentView);
-            scoreText = view.findViewById(R.id.scoreView);
+
         }
 
     }
@@ -55,38 +55,77 @@ public class jobListAdapter extends RecyclerView.Adapter<jobListAdapter.jobViewH
         return jobList.size();
     }
 
-    public List<Job> getSelectedJobs() {
-        return selectedJobs;
-    }
-
     @Override
     public void onBindViewHolder(@NonNull jobListAdapter.jobViewHolder holder, int position) {
-        Job job = jobList.get(position);
+
+        final Job job = jobList.get(position);
+        String current = job.isCurrentJob()? "Yes":"";
         holder.titleText.setText(job.getTitle());
         holder.companyText.setText(job.getCompany());
-        holder.currentText.setText(String.valueOf(job.isCurrentJob()));
-        holder.scoreText.setText(String.valueOf(job.getScore()));
+        holder.currentText.setText(current);
 
+
+        //set color if selected
+        holder.itemView.setBackgroundColor(job.isSelected()? Color.GREEN: Color.TRANSPARENT);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                onItemClick(holder, position);
+            public void onClick(View view) {
+
+                onClickItem(holder, job, selectedJobs);
             }
         });
 
     }
 
-    public void onItemClick(@NonNull jobListAdapter.jobViewHolder holder, int position) {
-        Job job = jobList.get(position);
-        if (!selectedJobs.contains(job)) {
-            selectedJobs.add(job);
-            holder.itemView.setBackgroundColor(Color.GREEN);
+
+    void onClickItem(@NonNull jobListAdapter.jobViewHolder holder, Job job, ArrayList<Integer> selectedJobs) {
+
+        //click item, select or deselect the item, change color
+        job.setSelected(!job.isSelected());
+        holder.itemView.setBackgroundColor(job.isSelected()? Color.GREEN: Color.TRANSPARENT);
+
+
+        if(job.isSelected()) {
+
+            //item is selected, add the position to selectedJobs arraylist
+            selectedJobs.add(holder.getAdapterPosition());
+        } else {
+
+            //deselected, remove the position from selectedJobs
+            //since these are only two items in the list, check index 0 and 1 respectively
+            if(selectedJobs.get(0) == holder.getAdapterPosition()) {
+                selectedJobs.remove(0);
+            } else {
+                selectedJobs.remove(selectedJobs.size()-1);
+            }
         }
-        else {
-            selectedJobs.remove(job);
-            holder.itemView.setBackgroundColor(Color.TRANSPARENT);
+
+
+        if(job.isSelected() && selectedJobs.size()>2) {
+
+            //if there are already two jobs selected, set the job selected false
+            jobList.get(selectedJobs.get(0)).setSelected(false);
+
+            //Notify any registered observers that the item at position has changed, to change color
+            notifyItemChanged(selectedJobs.get(0));
+
+            //remove job position from the list
+            selectedJobs.remove(0);
         }
     }
 
-} //end jobListAdapter
+    public ArrayList<Job> getSelectedJob(){
+
+        ArrayList<Job> list = new ArrayList<>();
+
+        for(int i: selectedJobs) {
+            list.add(jobList.get(i));
+        }
+
+        return list;
+    }
+
+
+
+}
