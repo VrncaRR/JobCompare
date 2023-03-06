@@ -45,16 +45,6 @@ public class ListJobs extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-
-<<<<<<< HEAD
-        List<Job> chosenJobs = adapter.getSelectedJobs();
-//        Log.d("JOBTAG", "chosen job entry");
-//        for (Job chosenJob : chosenJobs) {
-//            Log.d("JOBTAG", "chosen job " + chosenJob.getTitle());
-//        }
-=======
-
->>>>>>> 774d58172f54a0e5647c0b542a40f8237726b97b
     }
 
     public void configureListMainMenuButton(){

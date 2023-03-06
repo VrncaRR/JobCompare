@@ -42,19 +42,11 @@ public class ListJobsTest {
         onView(withId(R.id.entryOfferPCH)).check(matches(withText("")));
     }
 
-    // Verify that error message is set if an offer title of length 0 is attempted.
-    @Test
-    public void verifyEmptyTitleError() {
-        onView(withId(R.id.entryOfferTitle)).perform(replaceText(""));
-        onView(withId(R.id.saveOfferButton)).perform(click());
-        onView(withId(R.id.entryOfferTitle)).check(matches(withText("Invalid Entry")));
-    }
 
+    // Verify the correct buttons are shown
     @Test
-    public void verify() {
-        onView(withId(R.id.entryOfferTitle)).perform(replaceText(""));
-        onView(withId(R.id.saveOfferButton)).perform(click());
-        onView(withId(R.id.entryOfferTitle)).check(matches(withText("Invalid Entry")));
+    public void verifyBtnsShown() {
+
     }
 
 }

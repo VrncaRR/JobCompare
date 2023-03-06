@@ -7,7 +7,7 @@ public class EnterOfferIntentTest {
     @Test
     public void testIntentMatches() {
 
-    }   
+    }
 
     // Test that the intent was launched
     @Test
