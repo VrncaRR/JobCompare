@@ -1,6 +1,8 @@
 # Test Plan
 
 **Author**: Team 074
+**Version**: 2.0
+- Added more extensive test cases
 
 ## 1 Testing Strategy
 

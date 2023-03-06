@@ -1,6 +1,8 @@
 # Design Document
 
 **Author**: Team074
+**Version**: 2.0
+- Updated UML diagram
 
 ## 1 Design Considerations
 
