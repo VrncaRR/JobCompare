@@ -1,7 +1,9 @@
 # Design Document
 
 **Author**: Team074
+
 **Version**: 2.0
+- Updated constraints 
 - Updated UML diagram
 
 ## 1 Design Considerations
@@ -18,7 +20,7 @@ The API level is 31 (Android version 12), which impacts several packages: compil
 
 ### 1.3 System Environment
 
-The system is used on a mobile phone (Google Pixel 6) that runs Android 12. The Android operating system is Linux-based and is used for mobile devices, including smartphones and tablets. The Pixel 6 uses a Google Tensor (ARM64) processor and has 8 GB of RAM. Due to Android version 12, the app will run in its own process and instance of Android Runtime.
+The system is designed for use on an android phone that runs Android 12, such as a Google Pixel 4 or comparable. The Android operating system is Linux-based and is used for mobile devices, including smartphones and tablets. The Pixel 4 uses a Snapdragon processor and has 6 GB of RAM. Due to Android version 12, the app will run in its own process and instance of Android Runtime.
 
 ## 2 Architectural Design
 
@@ -36,8 +38,6 @@ Job offer component provides functionalities such as enter and edit job offers. 
 The diagram shows the deployment of android application. There is an apk. Within the apk, there are compiled classes, compiled resources, uncompiled resources, and deployment spec file. The apk will be deployed in Android execution environment. 
 
 ## 3 Low-Level Design
-
-*Describe the low-level design for each of the system components identified in the previous section. For each component, you should provide details in the following UML diagrams to show its internal structure.*
 
 ### 3.1 Class Diagram
 
