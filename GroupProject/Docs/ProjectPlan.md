@@ -2,6 +2,9 @@
 
 **Author**: Team 074
 
+**Version**: 2.0
+- Changed timing of testing plan
+
 ## 1 Introduction
 
 *This product is an application to help a person to compare a current job and job offers. The application will take into account multiple variables and provide the user with the ability to make weighted comparisons.*
@@ -24,25 +27,26 @@ and methods as defined in the design description.
 - Entrance Criteria
   - Exact definition of classes, attributes, and methods. 
 - Exit Criteria
-  - All defined classes and methods have been created and validated through testing.
+  - All defined classes and methods have been created and manual testing has been done.
 
 ## Construction
 - Activity Description
-  - In this phase the team will complete ful-stack integration of the program. All functionalities of the application
+  - In this phase the team will complete full-stack integration of the program. All functionalities of the application
 will be accessible from the UI.
 - Entrance Criteria
   - All classes and methods must be implemented. UI wire-frame graphics must be competed and ready for integration.
 - Exit Criteria
   - Fully working program. User can navigate UI and access all functionalities as defined in the design description.
+  - Basic unit tests have been done on UML defined classes.
 
 ## Transition
 - Activity Description
   - This phase is primarily for testing and validation of the program. Upon completion the program will be ready for 
 final release.
-- *ntrance Criteria
+- Entrance Criteria
   - Fully functioning program, back-end and front end are fully integrated.
 - Exit Criteria
-  - Product and user testing complete, and project is fully ready for release.
+  - Exhaustive unit testing and instrument testing done on application. Project is fully ready for release.
 
 ## 3 Team
 ### Roles
