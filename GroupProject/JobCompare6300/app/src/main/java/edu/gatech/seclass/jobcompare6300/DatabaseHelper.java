@@ -205,11 +205,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //sort list
         Cursor cursor = db.rawQuery(query, null);
 
-        //cursor.moveToFirst returns a true if there were items selected
-
-
-            //loop through the cursor (result set) and create new job objects. Put then into the result list
-            //proceed through the database one at a time
+        //loop through the cursor (result set) and create new job objects. Put then into the result list
+        //proceed through the database one at a time
         while(cursor.moveToNext()) {
             boolean isCurrentJob = cursor.getInt(10) == 1? true: false;
 
