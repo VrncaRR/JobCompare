@@ -51,6 +51,8 @@ public class EnterOffer extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveOffer();
+                Intent intent = new Intent(EnterOffer.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -134,7 +136,9 @@ public class EnterOffer extends AppCompatActivity {
         offerCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clearDataFields();
+
+                Intent intent = new Intent(EnterOffer.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
