@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
 
 
 public class EnterOffer extends AppCompatActivity {
@@ -50,7 +51,16 @@ public class EnterOffer extends AppCompatActivity {
         saveOfferButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                saveOffer();
+                boolean result = saveOffer();
+                Log.d("Tag", String.valueOf(result));
+                if (result) {
+                    Toast.makeText(EnterOffer.this, "Unable to add new job offer, please check input!", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(EnterOffer.this, "Successfully added a new job offer!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(EnterOffer.this, MainActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
@@ -69,11 +79,12 @@ public class EnterOffer extends AppCompatActivity {
     }
 
     //helper Functions //
-    public void saveOffer(){
+    public boolean saveOffer(){
         String ERROR_MESSAGE = "Invalid Entry";
-        Boolean error = false;
+        Boolean error = validateNotEmpty(false);
 
-        try{
+        // Check that there are no empty strings
+        if (!error) {
             String offerTitle = entryOfferTitle.getText().toString();
             String offerCompany = entryOfferCompany.getText().toString();
             String offerLocation = entryOfferLocation.getText().toString();
@@ -83,37 +94,70 @@ public class EnterOffer extends AppCompatActivity {
             float offerRSU = Float.parseFloat(entryOfferRSU.getText().toString());
             float offerRelo = Float.parseFloat(entryOfferRelo.getText().toString());
             int offerPCH = Integer.parseInt(entryOfferPCH.getText().toString());
+            Log.d("tag","HELLO");
+            Log.d("title",offerTitle);
+            Log.d("comp",offerCompany);
+            Log.d("loc",offerLocation);
+            Log.d("col",entryOfferCOL.getText().toString());
+            Log.d("sal",entryOfferSalary.getText().toString());
+            Log.d("bon",entryOfferBonus.getText().toString());
+            Log.d("rsu",entryOfferRSU.getText().toString());
+            Log.d("relo",entryOfferRelo.getText().toString());
+            Log.d("pch",entryOfferPCH.getText().toString());
 
-            if (offerTitle.length() == 0) {
-                entryOfferTitle.setError(ERROR_MESSAGE);
-                error = true;
-            }
-            if (offerCompany.length() == 0) {
-                entryOfferCompany.setError(ERROR_MESSAGE);
-                error = true;
-            }
-            if (offerLocation.length() == 0) {
-                entryOfferLocation.setError(ERROR_MESSAGE);
-                error = true;
-            }
-            if (!error) {
-                //TODO: Add create Current Job actions here
-                Job newOffer = new Job(offerTitle, offerCompany, offerLocation,
-                        offerCOL, offerSalary, offerBonus, offerRSU, offerRelo, offerPCH, false);
+            Log.d("DEBUG","no error found");
+            //TODO: Add create Current Job actions here
+            Job newOffer = new Job(offerTitle, offerCompany, offerLocation,
+                    offerCOL, offerSalary, offerBonus, offerRSU, offerRelo, offerPCH, false);
 
-                //add job offer to database
-                DatabaseHelper dbHelper = new DatabaseHelper(EnterOffer.this);
+            //add job offer to database
+            DatabaseHelper dbHelper = new DatabaseHelper(EnterOffer.this);
 
-                if(dbHelper.addJobOffer(newOffer)) {
-                    Toast.makeText(EnterOffer.this, "Successfully add a new job offer!", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(EnterOffer.this, "fail to add db", Toast.LENGTH_LONG).show();
-                }
+            if(!dbHelper.addJobOffer(newOffer)) {
+                Log.d("TAG", "fail to add db");
             }
-        }  catch(Exception e) {
-            Toast.makeText(EnterOffer.this, "Unable to add new job offer, please check input!", Toast.LENGTH_LONG).show();
         }
+
+        else {
+            Log.d("DEBUG","error found");
+//            Toast.makeText(EnterOffer.this, "Please check inputs!", Toast.LENGTH_LONG).show();
+            Log.d("Tag","Returning error " + String.valueOf(error));
+        }
+        return error;
     }
+
+    public boolean validateNotEmpty(boolean isError) {
+
+        if ((entryOfferTitle.getText().toString().length()) == 0) {
+            isError = true;
+        }
+        if ((entryOfferCompany.getText().toString().length()) == 0) {
+            isError = true;
+        }
+        if ((entryOfferLocation.getText().toString().length()) == 0) {
+            isError = true;
+        }
+        if ((entryOfferCOL.getText().toString().length()) == 0) {
+            isError = true;
+        }
+        if ((entryOfferSalary.getText().toString().length()) == 0) {
+            isError = true;
+        }
+        if ((entryOfferBonus.getText().toString().length()) == 0) {
+            isError = true;
+        }
+        if ((entryOfferRSU.getText().toString().length()) == 0) {
+            isError = true;
+        }
+        if ((entryOfferRelo.getText().toString().length()) == 0) {
+            isError = true;
+        }
+        if ((entryOfferPCH.getText().toString().length()) == 0) {
+            isError = true;
+        }
+        return isError;
+    }
+
     public void clearDataFields(){
         entryOfferTitle.setText("");
         entryOfferCompany.setText("");
@@ -134,7 +178,9 @@ public class EnterOffer extends AppCompatActivity {
         offerCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clearDataFields();
+
+                Intent intent = new Intent(EnterOffer.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -154,8 +200,14 @@ public class EnterOffer extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: Add any special function here to keep track off what job is being compared
-                saveOffer();
-                startActivity(new Intent(EnterOffer.this, CompareJobs.class));
+                boolean result = saveOffer();
+                if (result) {
+                    Toast.makeText(EnterOffer.this, "Unable to compare new job offer, please check input!", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(EnterOffer.this, "Successfully added a new job offer!", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(EnterOffer.this, CompareJobs.class));
+                }
             }
         });
     }
