@@ -64,7 +64,6 @@ public class Job implements Parcelable{
 
     }
 
-
     public static final Parcelable.Creator<Job> CREATOR = new Parcelable.Creator<Job>() {
         @Override
         public Job createFromParcel(Parcel in) {
@@ -178,9 +177,6 @@ public class Job implements Parcelable{
 
     public float getScore() {
         return score;
-    }
-
-    public void setSelected(boolean selected) {
     }
 
     @Override
