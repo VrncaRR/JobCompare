@@ -86,7 +86,6 @@ public class CompareSettings extends AppCompatActivity {
     //save comparisonSetting to db
     //add score to Job attribute, but don't save it to database
     //when rank job offers, get all the job offer from database
-    //user the second constructor (constructor that has score in it)to create job offer
     //list.sort() to sort list
 
 

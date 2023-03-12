@@ -14,12 +14,18 @@ import java.util.List;
 
 public class jobListAdapter extends RecyclerView.Adapter<jobListAdapter.jobViewHolder> {
 
-    private List<Job> jobList;
+    private List<JobWrapper> jobWrapperList;
     private ArrayList<Integer> selectedJobs = new ArrayList<>();
 
 
     public jobListAdapter(List<Job> jobList) {
-        this.jobList = jobList;
+
+        List<JobWrapper> list = new ArrayList<>();
+        for(Job job: jobList) {
+            list.add(new JobWrapper(job,false));
+        }
+
+        this.jobWrapperList = list;
     }
 
     //view holder class
@@ -27,7 +33,6 @@ public class jobListAdapter extends RecyclerView.Adapter<jobListAdapter.jobViewH
 
         private TextView titleText;
         private TextView companyText;
-
         private TextView currentText;
 
 
@@ -52,13 +57,14 @@ public class jobListAdapter extends RecyclerView.Adapter<jobListAdapter.jobViewH
 
     @Override
     public int getItemCount() {
-        return jobList.size();
+        return jobWrapperList.size();
     }
 
     @Override
     public void onBindViewHolder(@NonNull jobListAdapter.jobViewHolder holder, int position) {
 
-        final Job job = jobList.get(position);
+        final JobWrapper jw = jobWrapperList.get(position);
+        final Job job = jw.getJob();
         String current = job.isCurrentJob()? "Yes":"";
         holder.titleText.setText(job.getTitle());
         holder.companyText.setText(job.getCompany());
@@ -66,27 +72,26 @@ public class jobListAdapter extends RecyclerView.Adapter<jobListAdapter.jobViewH
 
 
         //set color if selected
-        holder.itemView.setBackgroundColor(job.isSelected()? Color.GREEN: Color.TRANSPARENT);
+        holder.itemView.setBackgroundColor(jw.isSelected()? Color.GREEN: Color.TRANSPARENT);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                onClickItem(holder, job, selectedJobs);
+                onClickItem(holder, jw, selectedJobs);
             }
         });
 
     }
 
 
-    void onClickItem(@NonNull jobListAdapter.jobViewHolder holder, Job job, ArrayList<Integer> selectedJobs) {
+    void onClickItem(@NonNull jobListAdapter.jobViewHolder holder, JobWrapper jw, ArrayList<Integer> selectedJobs) {
 
         //click item, select or deselect the item, change color
-        job.setSelected(!job.isSelected());
-        holder.itemView.setBackgroundColor(job.isSelected()? Color.GREEN: Color.TRANSPARENT);
+        jw.setSelected(!jw.isSelected());
+        holder.itemView.setBackgroundColor(jw.isSelected()? Color.GREEN: Color.TRANSPARENT);
 
-
-        if(job.isSelected()) {
+        if(jw.isSelected()) {
 
             //item is selected, add the position to selectedJobs arraylist
             selectedJobs.add(holder.getAdapterPosition());
@@ -102,10 +107,10 @@ public class jobListAdapter extends RecyclerView.Adapter<jobListAdapter.jobViewH
         }
 
 
-        if(job.isSelected() && selectedJobs.size()>2) {
+        if(jw.isSelected() && selectedJobs.size()>2) {
 
             //if there are already two jobs selected, set the job selected false
-            jobList.get(selectedJobs.get(0)).setSelected(false);
+            jobWrapperList.get(selectedJobs.get(0)).setSelected(false);
 
             //Notify any registered observers that the item at position has changed, to change color
             notifyItemChanged(selectedJobs.get(0));
@@ -120,7 +125,7 @@ public class jobListAdapter extends RecyclerView.Adapter<jobListAdapter.jobViewH
         ArrayList<Job> list = new ArrayList<>();
 
         for(int i: selectedJobs) {
-            list.add(jobList.get(i));
+            list.add(jobWrapperList.get(i).getJob());
         }
 
         return list;

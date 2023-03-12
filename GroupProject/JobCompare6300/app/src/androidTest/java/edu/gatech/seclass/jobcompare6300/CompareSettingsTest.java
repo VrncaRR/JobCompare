@@ -3,6 +3,7 @@ package edu.gatech.seclass.jobcompare6300;
 
 import android.content.Context;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,6 +24,14 @@ import static org.junit.Assert.assertEquals;
 @RunWith(AndroidJUnit4.class)
 
 public class CompareSettingsTest {
+
+        private DatabaseHelper database;
+
+        @Before
+        public void setUp() throws Exception {
+                InstrumentationRegistry.getInstrumentation().getTargetContext().deleteDatabase("JobOfferComparison.db");
+                database = new DatabaseHelper(InstrumentationRegistry.getInstrumentation().getTargetContext());
+        }
 
         @Rule
         public ActivityScenarioRule<CompareSettings> activityTestRule = new ActivityScenarioRule<CompareSettings>(CompareSettings.class);
