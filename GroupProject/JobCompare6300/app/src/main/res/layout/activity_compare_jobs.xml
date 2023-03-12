@@ -52,7 +52,8 @@
                 android:text="Job 1"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="20sp"/>
 
             <TextView
                 android:id="@+id/textView7"
@@ -62,7 +63,8 @@
                 android:text="Job 2"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="20sp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -70,7 +72,7 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:id="@+id/editTextTextPersonName19"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -78,7 +80,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Job Title"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/J1Title"
@@ -105,7 +108,7 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:id="@+id/editTextTextPersonName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -113,7 +116,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Company"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/J1Company"
@@ -139,7 +143,7 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:id="@+id/editTextTextPersonName5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -147,7 +151,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Location"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/J1Loc"
@@ -173,7 +178,7 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:id="@+id/editTextTextPersonName7"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -181,7 +186,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Cost of Living"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/J1COL"
@@ -207,7 +213,7 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:id="@+id/editTextTextPersonName9"
                 android:layout_width="209dp"
                 android:layout_height="match_parent"
@@ -215,7 +221,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Yearly Salary"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/J1Salary"
@@ -241,7 +248,7 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:id="@+id/editTextTextPersonName11"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -249,7 +256,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:textStyle="bold"
-                android:text="Yearly Bonus" />
+                android:text="Yearly Bonus"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/J1Bonus"
@@ -275,7 +283,7 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:id="@+id/editTextTextPersonName13"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -284,7 +292,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="RSU"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/J1RSU"
@@ -310,7 +319,7 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:id="@+id/editTextTextPersonName15"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -318,7 +327,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Relo Stipend"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/J1Relo"
@@ -344,7 +354,7 @@
             android:layout_height="50dp"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:id="@+id/editTextTextPersonName17"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -352,7 +362,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Holidays"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="20dp"/>
 
             <EditText
                 android:id="@+id/J1Holiday"
@@ -390,7 +401,7 @@
                     android:id="@+id/SaveCurJobButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Another" />
+                    android:text="Compare Other" />
             </LinearLayout>
 
             <LinearLayout
