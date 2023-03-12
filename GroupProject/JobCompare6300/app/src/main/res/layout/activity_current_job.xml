@@ -131,7 +131,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="enter here"
-                android:inputType="textPersonName" />
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout
@@ -157,7 +157,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="enter here"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -183,7 +183,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="enter here"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -209,7 +209,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="enter here"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -235,7 +235,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="enter here"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -261,7 +261,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="enter here"
-                android:inputType="textPersonName" />
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout

@@ -9,9 +9,15 @@
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="729dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView2"
@@ -34,7 +40,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="136dp"
+                android:layout_width="104dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
@@ -52,8 +58,8 @@
                 android:text="Job 1"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -63,8 +69,8 @@
                 android:text="Job 2"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -74,16 +80,16 @@
 
             <TextView
                 android:id="@+id/editTextTextPersonName19"
-                android:layout_width="wrap_content"
+                android:layout_width="155dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Job Title"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J1Title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -92,7 +98,7 @@
                 android:inputType="textPersonName"
                 android:text="J1_Title" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J2Title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -116,10 +122,10 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Company"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J1Company"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -128,7 +134,7 @@
                 android:inputType="textPersonName"
                 android:text="J1_Company" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J2Company"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -151,10 +157,10 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Location"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J1Loc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -163,7 +169,7 @@
                 android:inputType="textPersonName"
                 android:text="J1_Loc" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J2Loc"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -186,10 +192,10 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Cost of Living"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J1COL"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -198,7 +204,7 @@
                 android:inputType="textPersonName"
                 android:text="J1_COL" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J2COL"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -221,10 +227,10 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Yearly Salary"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J1Salary"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -233,7 +239,7 @@
                 android:inputType="textPersonName"
                 android:text="J1_Salary" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J2Salary"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -255,11 +261,11 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:textStyle="bold"
                 android:text="Yearly Bonus"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J1Bonus"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -268,7 +274,7 @@
                 android:inputType="textPersonName"
                 android:text="J1_Bonus" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J2Bonus"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -292,10 +298,10 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="RSU"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J1RSU"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -304,7 +310,7 @@
                 android:inputType="textPersonName"
                 android:text="J1_RSU" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J2RSU"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -327,10 +333,10 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Relo Stipend"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J1Relo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -339,7 +345,7 @@
                 android:inputType="textPersonName"
                 android:text="J1_Relo" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J2Relo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -362,10 +368,10 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Holidays"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J1Holiday"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -374,7 +380,7 @@
                 android:inputType="textPersonName"
                 android:text="J1_Holiday" />
 
-            <EditText
+            <TextView
                 android:id="@+id/J2Holiday"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
