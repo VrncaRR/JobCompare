@@ -45,6 +45,7 @@ public class CompareSettings extends AppCompatActivity {
 
         configureSettingsCancelButton();
         handleSaveSettings();
+        configureSettings2Main();
     }
 
     public void handleSaveSettings(){
@@ -92,6 +93,23 @@ public class CompareSettings extends AppCompatActivity {
     public void configureSettingsCancelButton(){
         Button settingsCancelButton = (Button) findViewById(R.id.SettingsCancelButton);
         settingsCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dbHelper = new DatabaseHelper(CompareSettings.this);
+                //get current comparison setting, if no, get default comparison setting
+                settings = dbHelper.getCurrentSetting();
+
+                entrySalaryWeight.setText(String.valueOf(settings.getSalaryWeight()));
+                entryBonusWeight.setText(String.valueOf(settings.getBonusWeight()));
+                entryRSUWeight.setText(String.valueOf(settings.getRSUWeight()));
+                entryReloWeight.setText(String.valueOf(settings.getRelocationStipendWeight()));
+                entryPCHWeight.setText(String.valueOf(settings.getPTOWeight()));
+            }
+        });
+    }
+    public void configureSettings2Main() {
+        Button settings2Main = (Button) findViewById(R.id.settings2Main);
+        settings2Main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();

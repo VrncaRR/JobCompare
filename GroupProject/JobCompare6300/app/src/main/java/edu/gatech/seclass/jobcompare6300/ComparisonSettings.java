@@ -12,6 +12,12 @@ public class ComparisonSettings extends Activity {
 
     public ComparisonSettings() {
 
+        this.salaryWeight = 1;
+        this.bonusWeight = 1;
+        this.RSUWeight = 1;
+        this.relocationStipendWeight = 1;
+        this.PTOWeight = 1;
+
     }
 
     public ComparisonSettings(int salaryWeight, int bonusWeight, int RSUWeight,
