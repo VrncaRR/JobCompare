@@ -77,23 +77,22 @@ public class CompareSettingsTest {
                 onView(ViewMatchers.withId(R.id.entryRSUWeight)).perform(ViewActions.typeText("2"));
                 onView(ViewMatchers.withId(R.id.entryReloWeight)).perform(ViewActions.typeText("2"));
                 onView(ViewMatchers.withId(R.id.entryPCHWeight)).perform(ViewActions.typeText("2"));
-/*
-                DatabaseHelper dbHelper = new DatabaseHelper(ComparisonSettings.this);
+
+                //DatabaseHelper dbHelper = new DatabaseHelper(ComparisonSettings.this);
                 //get current comparison setting, if no, get default comparison setting
-                ComparisonSettings settings = dbHelper.getCurrentSetting();
+                //ComparisonSettings settings = database.getCurrentSetting();
 
-                String salaryW = Integer.toString(settings.getSalaryWeight());
-                String bonusW = Integer.toString(settings.getSalaryWeight());
-                String rSUW = Integer.toString(settings.getSalaryWeight());
-                String reloW = Integer.toString(settings.getSalaryWeight());
-                String pCHW = Integer.toString(settings.getSalaryWeight());
+                //String salaryW = Integer.toString(settings.getSalaryWeight());
+                //String bonusW = Integer.toString(settings.getSalaryWeight());
+                //String rSUW = Integer.toString(settings.getSalaryWeight());
+                //String reloW = Integer.toString(settings.getSalaryWeight());
+                //String pCHW = Integer.toString(settings.getSalaryWeight());
 
-                onView(withId(R.id.entrySalaryWeight)).check(matches(withText(salaryW)));
-                onView(withId(R.id.entryBonusWeight)).check(matches(withText(bonusW)));
-                onView(withId(R.id.entryRSUWeight)).check(matches(withText(rSUW)));
-                onView(withId(R.id.entryReloWeight)).check(matches(withText(reloW)));
-                onView(withId(R.id.entryPCHWeight)).check(matches(withText(pCHW)));
-*/
+                onView(withId(R.id.entrySalaryWeight)).check(matches(withText("12")));
+                onView(withId(R.id.entryBonusWeight)).check(matches(withText("12")));
+                onView(withId(R.id.entryRSUWeight)).check(matches(withText("12")));
+                onView(withId(R.id.entryReloWeight)).check(matches(withText("12")));
+                onView(withId(R.id.entryPCHWeight)).check(matches(withText("12")));
         }
 
         // Test that the db doesn't update if the user modifies weights and hits cancel

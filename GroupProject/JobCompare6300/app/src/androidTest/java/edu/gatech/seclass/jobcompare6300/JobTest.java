@@ -22,15 +22,13 @@ public class JobTest {
         testJob = new Job("SDE 1", "Amazon", "Seattle",
                 25, 200000F, 20000F, 16853.3F,
                 5000, 20, true);
-        //Looper.prepare();
+        Looper.prepare();
     }
 
 
     // Test score calculation with default values
     @Test
     public void testCalcScoreWithDefaults() {
-
-        //Looper.prepare();
 
         ComparisonSettings setting = new ComparisonSettings();
 
