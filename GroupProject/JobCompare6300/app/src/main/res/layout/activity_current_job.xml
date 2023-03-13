@@ -131,7 +131,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="enter here"
-                android:inputType="textPersonName" />
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout
@@ -157,7 +157,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="enter here"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -183,7 +183,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="enter here"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -209,7 +209,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="enter here"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -235,7 +235,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="enter here"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -261,7 +261,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="enter here"
-                android:inputType="textPersonName" />
+                android:inputType="number" />
         </LinearLayout>
 
         <LinearLayout
@@ -300,11 +300,17 @@
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/testingTextView"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="TextView" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/job2Main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Main Menu" />
+        </LinearLayout>
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

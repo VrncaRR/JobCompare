@@ -40,7 +40,9 @@ public class CurrentJob extends AppCompatActivity {
         entryCurJobRSU = (EditText) findViewById(R.id.entryCurJobRSU);
         entryCurJobRelo = (EditText) findViewById(R.id.entryCurJobRelo);
         entryCurJobPCH = (EditText) findViewById(R.id.entryCurJobPCH);
-        testingTextView = (TextView) findViewById(R.id.testingTextView);
+        //testingTextView = (TextView) findViewById(R.id.testingTextView);
+
+
 
         //get current job
         dbHelper = new DatabaseHelper(CurrentJob.this);
@@ -64,6 +66,7 @@ public class CurrentJob extends AppCompatActivity {
         configureCancelJobButton();
         configureSaveCurJobButton();
         handleSaveCurJob();
+        configureJob2Main();
     }
 
     //Handle Save
@@ -130,6 +133,29 @@ public class CurrentJob extends AppCompatActivity {
     public void configureCancelJobButton(){
         Button cancelJobButton = (Button) findViewById(R.id.CancelJobButton);
         cancelJobButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //get current job
+                dbHelper = new DatabaseHelper(CurrentJob.this);
+                currentJob = dbHelper.getCurrentJob();
+
+                //set current job attributes
+                entryCurJobTitle.setText(currentJob.getTitle());
+                entryCurJobCompany.setText(currentJob.getCompany());
+                entryCurJobLocation.setText(currentJob.getLocation());
+                entryCurJobCOL.setText(String.valueOf(currentJob.getCostOfLiving()));
+                entryCurJobSalary.setText(String.valueOf(currentJob.getYearlySalary()));
+                entryCurJobBonus.setText(String.valueOf(currentJob.getYearlyBonus()));
+                entryCurJobRSU.setText(String.valueOf(currentJob.getRsu()));
+                entryCurJobRelo.setText(String.valueOf(currentJob.getRelocationStipend()));
+                entryCurJobPCH.setText(String.valueOf(currentJob.getPto()));
+            }
+        });
+    }
+
+    public void configureJob2Main(){
+        Button job2Main = (Button) findViewById(R.id.job2Main);
+        job2Main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();

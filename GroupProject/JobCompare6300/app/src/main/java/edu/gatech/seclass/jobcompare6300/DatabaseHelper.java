@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Looper;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -189,6 +190,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return count == 1? true: false;
     }
+
     public List<Job> getAll() {
 
         List<Job> list = new ArrayList<>();
@@ -205,11 +207,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //sort list
         Cursor cursor = db.rawQuery(query, null);
 
-        //cursor.moveToFirst returns a true if there were items selected
-
-
-            //loop through the cursor (result set) and create new job objects. Put then into the result list
-            //proceed through the database one at a time
+        //loop through the cursor (result set) and create new job objects. Put then into the result list
+        //proceed through the database one at a time
         while(cursor.moveToNext()) {
             boolean isCurrentJob = cursor.getInt(10) == 1? true: false;
 
@@ -296,5 +295,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //close db when done
         db.close();
         return insert==-1L? false: true;
+    }
+
+    public Job getRecentAddedJob() {
+
+        String query = " SELECT * FROM " + OFFER_TABLE + " ORDER BY " + COLUMN_ID + " DESC LIMIT 1 ";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Job recentJob = null;
+        Cursor cursor = db.rawQuery(query, null);
+
+        if(cursor.moveToFirst()) {
+
+            boolean isCurrentJob = cursor.getInt(10) == 1? true: false;
+            recentJob = new Job(cursor.getString(1), cursor.getString(2), cursor.getString(3),
+                    cursor.getInt(4), cursor.getFloat(5), cursor.getFloat(6), cursor.getFloat(7),
+                    cursor.getFloat(8), cursor.getInt(9), isCurrentJob);
+        }
+        //close both cursor and db when done
+        cursor.close();
+        db.close();
+        return recentJob;
+
+    }
+
+    public int countJobOffers() {
+
+        String query = " SELECT COUNT ( * ) FROM " + OFFER_TABLE ;
+        SQLiteDatabase db = this.getReadableDatabase();
+        int count = 0;
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        if(cursor.moveToFirst()) {
+
+            count = cursor.getInt(0);
+        }
+        //close both cursor and db when done
+        cursor.close();
+        db.close();
+        return count;
+
     }
 }

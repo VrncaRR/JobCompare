@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,24 +17,24 @@ import java.util.List;
 
 public class CompareJobs extends AppCompatActivity {
 
-    private EditText firstTitle;
-    private EditText secondTitle;
-    private EditText firstCompany;
-    private EditText secondCompany;
-    private EditText firstLoc;
-    private EditText secondLoc;
-    private EditText firstCOL;
-    private EditText secondCOL;
-    private EditText firstSalary;
-    private EditText secondSalary;
-    private EditText firstBonus;
-    private EditText secondBonus;
-    private EditText firstRSU;
-    private EditText secondRSU;
-    private EditText firstStipend;
-    private EditText secondStipend;
-    private EditText firstPTO;
-    private EditText secondPTO;
+    private TextView firstTitle;
+    private TextView secondTitle;
+    private TextView firstCompany;
+    private TextView secondCompany;
+    private TextView firstLoc;
+    private TextView secondLoc;
+    private TextView firstCOL;
+    private TextView secondCOL;
+    private TextView firstSalary;
+    private TextView secondSalary;
+    private TextView firstBonus;
+    private TextView secondBonus;
+    private TextView firstRSU;
+    private TextView secondRSU;
+    private TextView firstStipend;
+    private TextView secondStipend;
+    private TextView firstPTO;
+    private TextView secondPTO;
 
 
     @Override
@@ -54,24 +55,24 @@ public class CompareJobs extends AppCompatActivity {
 
     void setValue(Job firstJob, Job secondJob) {
 
-        firstTitle = (EditText) findViewById(R.id.J1Title);
-        secondTitle = (EditText) findViewById(R.id.J2Title);
-        firstCompany = (EditText) findViewById(R.id.J1Company);
-        secondCompany = (EditText) findViewById(R.id.J2Company);
-        firstLoc = (EditText) findViewById(R.id.J1Loc);
-        secondLoc = (EditText) findViewById(R.id.J2Loc);
-        firstCOL = (EditText) findViewById(R.id.J1COL);
-        secondCOL = (EditText) findViewById(R.id.J2COL);
-        firstSalary = (EditText) findViewById(R.id.J1Salary);
-        secondSalary = (EditText) findViewById(R.id.J2Salary);
-        firstBonus = (EditText) findViewById(R.id.J1Bonus);
-        secondBonus = (EditText) findViewById(R.id.J2Bonus);
-        firstRSU = (EditText) findViewById(R.id.J1RSU);
-        secondRSU = (EditText) findViewById(R.id.J2RSU);
-        firstStipend = (EditText) findViewById(R.id.J1Relo);
-        secondStipend = (EditText) findViewById(R.id.J2Relo);
-        firstPTO = (EditText) findViewById(R.id.J1Holiday);
-        secondPTO = (EditText) findViewById(R.id.J2Holiday);
+        firstTitle = (TextView) findViewById(R.id.J1Title);
+        secondTitle = (TextView) findViewById(R.id.J2Title);
+        firstCompany = (TextView) findViewById(R.id.J1Company);
+        secondCompany = (TextView) findViewById(R.id.J2Company);
+        firstLoc = (TextView) findViewById(R.id.J1Loc);
+        secondLoc = (TextView) findViewById(R.id.J2Loc);
+        firstCOL = (TextView) findViewById(R.id.J1COL);
+        secondCOL = (TextView) findViewById(R.id.J2COL);
+        firstSalary = (TextView) findViewById(R.id.J1Salary);
+        secondSalary = (TextView) findViewById(R.id.J2Salary);
+        firstBonus = (TextView) findViewById(R.id.J1Bonus);
+        secondBonus = (TextView) findViewById(R.id.J2Bonus);
+        firstRSU = (TextView) findViewById(R.id.J1RSU);
+        secondRSU = (TextView) findViewById(R.id.J2RSU);
+        firstStipend = (TextView) findViewById(R.id.J1Relo);
+        secondStipend = (TextView) findViewById(R.id.J2Relo);
+        firstPTO = (TextView) findViewById(R.id.J1Holiday);
+        secondPTO = (TextView) findViewById(R.id.J2Holiday);
 
 
         firstTitle.setText(firstJob.getTitle());
@@ -102,7 +103,8 @@ public class CompareJobs extends AppCompatActivity {
         compareMainMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent intent = new Intent(CompareJobs.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -112,8 +114,8 @@ public class CompareJobs extends AppCompatActivity {
         compareAnotherButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clearDataFields();
-//                finish();
+                Intent intent = new Intent(CompareJobs.this, ListJobs.class);
+                startActivity(intent);
             }
         });
     }

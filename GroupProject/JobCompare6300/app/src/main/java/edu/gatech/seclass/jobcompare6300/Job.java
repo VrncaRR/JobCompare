@@ -20,7 +20,6 @@ public class Job implements Parcelable{
     private float yearlyBonusAdjusted;
     private int pto;
     private float score;
-    private boolean isSelected;
 
     private void calculateSalaryAdjusted() {
         this.yearlySalaryAdjusted = (this.yearlySalary/costOfLiving)*100;
@@ -62,10 +61,8 @@ public class Job implements Parcelable{
         this.yearlyBonusAdjusted=parcel.readFloat();
         this.pto = parcel.readInt();
         this.score =parcel.readFloat();
-        this.isSelected = parcel.readBoolean();
 
     }
-
 
     public static final Parcelable.Creator<Job> CREATOR = new Parcelable.Creator<Job>() {
         @Override
@@ -182,14 +179,6 @@ public class Job implements Parcelable{
         return score;
     }
 
-    public boolean isSelected() {
-        return isSelected;
-    }
-
-    public void setSelected(boolean selected) {
-        isSelected = selected;
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -211,7 +200,6 @@ public class Job implements Parcelable{
         parcel.writeFloat(yearlyBonusAdjusted);
         parcel.writeInt(pto);
         parcel.writeFloat(score);
-        parcel.writeBoolean(isSelected);
     }
 
 }
