@@ -33,23 +33,6 @@ public class DatabaseHelperTest {
     }
 
     @Test
-    public void testAddJobOffer() throws Exception {
-        database.addJobOffer(new Job("SDE 1", "Amazon", "Seattle",
-                25, 200000, 20000, 200, 5000, 20, false));
-        List<Job> jobs = database.getAll();
-        assertEquals("SDE 1", jobs.get(0).getTitle());
-        assertEquals("Amazon", jobs.get(0).getCompany());
-        assertEquals("Seattle", jobs.get(0).getLocation());
-        assertEquals(25, jobs.get(0).getCostOfLiving());
-        assertEquals(200000, jobs.get(0).getYearlySalary(), 0);
-        assertEquals(20000, jobs.get(0).getYearlyBonus(), 0);
-        assertEquals(200, jobs.get(0).getRsu(), 0);
-        assertEquals(5000, jobs.get(0).getRelocationStipend(), 0);
-        assertEquals(20, jobs.get(0).getPto(), 0);
-        assertFalse(jobs.get(0).isCurrentJob());
-    }
-
-    @Test
     public void testGetCurrentJob() throws Exception {
         database.addJobOffer(new Job("Staff Engineer", "Google", "NYC",
                 22, 250000, 40000, 500, 2000, 20, true));

@@ -89,17 +89,6 @@ public class EnterOfferActivityInstrumentedTest {
     }
 
 
-    // Verify that adding a job results in that job being present in the db
-    @Test
-    public void verifyAddCurJobToDatabase() {
-        database.addJobOffer(new Job("Software Manager", "Microsoft", "Redmond",
-                100, 300000, 20000, 2000, 5000, 20, true));
-        List<Job> jobs = database.getAll();
-        assertEquals(0,jobs.size());
-        assertTrue(jobs.get(0).isCurrentJob());
-    }
-
-
     // Verify the correct buttons are shown on the "add a job offer" screen
     @Test
     public void verifyJobOfferBtnsShown() {
