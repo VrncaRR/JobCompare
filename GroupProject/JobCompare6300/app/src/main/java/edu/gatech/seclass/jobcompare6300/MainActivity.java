@@ -24,6 +24,14 @@ public class MainActivity extends AppCompatActivity {
         configureEnterJobOfferButton();
         configureSettingsButton();
         configureCompareOfferButton();
+        animateCompare();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        animateCompare();
+
     }
 
     public void configureEnterCurrentJobButton(){
@@ -56,6 +64,16 @@ public class MainActivity extends AppCompatActivity {
     }
     public void configureCompareOfferButton(){
         Button compareOffersButton = (Button) findViewById(R.id.CompareOffersButton);
+
+        compareOffersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ListJobs.class));
+            }
+        });
+    }
+
+    public void animateCompare(){
         View buttonCompareOfferButtonView = findViewById(R.id.CompareOffersButton);
         View  compareNote = findViewById(R.id.compareNote);
 
@@ -69,11 +87,6 @@ public class MainActivity extends AppCompatActivity {
             buttonCompareOfferButtonView.setVisibility(View.VISIBLE);
             compareNote.setVisibility(View.GONE);
         }
-        compareOffersButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ListJobs.class));
-            }
-        });
+
     }
 }
