@@ -11,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class EnterOffer extends AppCompatActivity {
     private EditText entryOfferTitle;
@@ -22,10 +25,15 @@ public class EnterOffer extends AppCompatActivity {
     private EditText entryOfferRSU;
     private EditText entryOfferRelo;
     private EditText entryOfferPCH;
+    private boolean offerEntered = false;
+
+    //add job offer to database
+    DatabaseHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_offer);
+        dbHelper = new DatabaseHelper(EnterOffer.this);
 
         //Initialize Edit Text Fields
         entryOfferTitle = (EditText) findViewById(R.id.entryOfferTitle);
@@ -58,8 +66,8 @@ public class EnterOffer extends AppCompatActivity {
                 }
                 else {
                     Toast.makeText(EnterOffer.this, "Successfully added a new job offer!", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(EnterOffer.this, MainActivity.class);
-                    startActivity(intent);
+//                    Intent intent = new Intent(EnterOffer.this, MainActivity.class);
+//                    startActivity(intent);
                 }
             }
         });
@@ -110,11 +118,13 @@ public class EnterOffer extends AppCompatActivity {
             Job newOffer = new Job(offerTitle, offerCompany, offerLocation,
                     offerCOL, offerSalary, offerBonus, offerRSU, offerRelo, offerPCH, false);
 
-            //add job offer to database
-            DatabaseHelper dbHelper = new DatabaseHelper(EnterOffer.this);
 
             if(!dbHelper.addJobOffer(newOffer)) {
                 Log.d("TAG", "fail to add db");
+                Toast.makeText(EnterOffer.this, "Unable to save offer, please check input", Toast.LENGTH_LONG).show();
+            } else {
+                //succesfully save the offer, change offerEntered
+                this.offerEntered = true;
             }
         }
 
@@ -200,13 +210,24 @@ public class EnterOffer extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //TODO: Add any special function here to keep track off what job is being compared
-                boolean result = saveOffer();
-                if (result) {
-                    Toast.makeText(EnterOffer.this, "Unable to compare new job offer, please check input!", Toast.LENGTH_LONG).show();
-                }
-                else {
-                    Toast.makeText(EnterOffer.this, "Successfully added a new job offer!", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(EnterOffer.this, CompareJobs.class));
+
+                if(EnterOffer.this.offerEntered) {
+                    //if there is a job offer entered, compare the recently added offer to the current job
+
+                    try{
+
+                        ArrayList<Job> listJobsToCompare = new ArrayList<>();
+                        listJobsToCompare.add(dbHelper.getRecentAddedJob());
+                        listJobsToCompare.add(dbHelper.getCurrentJob());
+                        Intent intent = new Intent(EnterOffer.this, CompareJobs.class);
+                        intent.putParcelableArrayListExtra("jobList", listJobsToCompare);
+
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        Toast.makeText(EnterOffer.this, "Unable to compare the just added job with current job", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(EnterOffer.this, "Please add job first!", Toast.LENGTH_LONG).show();
                 }
             }
         });

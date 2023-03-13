@@ -189,6 +189,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return count == 1? true: false;
     }
+
     public List<Job> getAll() {
 
         List<Job> list = new ArrayList<>();
@@ -293,5 +294,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //close db when done
         db.close();
         return insert==-1L? false: true;
+    }
+
+    public Job getRecentAddedJob() {
+
+        String query = " SELECT * FROM " + OFFER_TABLE + " ORDER BY " + COLUMN_ID + " DESC LIMIT 1 ";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Job recentJob = null;
+        Cursor cursor = db.rawQuery(query, null);
+
+        if(cursor.moveToFirst()) {
+
+            boolean isCurrentJob = cursor.getInt(10) == 1? true: false;
+            recentJob = new Job(cursor.getString(1), cursor.getString(2), cursor.getString(3),
+                    cursor.getInt(4), cursor.getFloat(5), cursor.getFloat(6), cursor.getFloat(7),
+                    cursor.getFloat(8), cursor.getInt(9), isCurrentJob);
+        }
+        //close both cursor and db when done
+        cursor.close();
+        db.close();
+        return recentJob;
+
     }
 }

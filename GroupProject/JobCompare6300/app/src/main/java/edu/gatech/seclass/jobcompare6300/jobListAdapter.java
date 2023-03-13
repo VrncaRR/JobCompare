@@ -70,7 +70,6 @@ public class jobListAdapter extends RecyclerView.Adapter<jobListAdapter.jobViewH
         holder.companyText.setText(job.getCompany());
         holder.currentText.setText(current);
 
-
         //set color if selected
         holder.itemView.setBackgroundColor(jw.isSelected()? Color.GREEN: Color.TRANSPARENT);
 
