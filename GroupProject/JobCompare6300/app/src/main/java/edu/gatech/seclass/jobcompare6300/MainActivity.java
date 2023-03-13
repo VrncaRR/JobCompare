@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseHelper dbHelper;
@@ -54,6 +56,19 @@ public class MainActivity extends AppCompatActivity {
     }
     public void configureCompareOfferButton(){
         Button compareOffersButton = (Button) findViewById(R.id.CompareOffersButton);
+        View buttonCompareOfferButtonView = findViewById(R.id.CompareOffersButton);
+        View  compareNote = findViewById(R.id.compareNote);
+
+        dbHelper = new DatabaseHelper(MainActivity.this);
+
+        if(dbHelper.getAll().size() < 2) {
+            buttonCompareOfferButtonView.setVisibility(View.GONE);
+            compareNote.setVisibility(View.VISIBLE);
+
+        }else {
+            buttonCompareOfferButtonView.setVisibility(View.VISIBLE);
+            compareNote.setVisibility(View.GONE);
+        }
         compareOffersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

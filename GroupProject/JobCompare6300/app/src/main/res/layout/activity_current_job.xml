@@ -300,11 +300,5 @@
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/testingTextView"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="TextView" />
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
