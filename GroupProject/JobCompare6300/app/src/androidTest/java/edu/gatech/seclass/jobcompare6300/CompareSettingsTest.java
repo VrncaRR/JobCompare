@@ -73,11 +73,10 @@ public class CompareSettingsTest {
         public void testDBUpdateOnModify() {
                 //Enter 2 for all settings
                 onView(ViewMatchers.withId(R.id.entrySalaryWeight)).perform(ViewActions.typeText("2"));
-                onView(ViewMatchers.withId(R.id.entryBonusWeight)).check(matches(withText("2")));
-                onView(ViewMatchers.withId(R.id.entryRSUWeight)).check(matches(withText("2")));
-                onView(ViewMatchers.withId(R.id.entryReloWeight)).check(matches(withText("2")));
-                onView(ViewMatchers.withId(R.id.entryPCHWeight)).check(matches(withText("2")));
-                onView(withId(R.id.saveSettingsButton)).perform(ViewActions.click());
+                onView(ViewMatchers.withId(R.id.entryBonusWeight)).perform(ViewActions.typeText("2"));
+                onView(ViewMatchers.withId(R.id.entryRSUWeight)).perform(ViewActions.typeText("2"));
+                onView(ViewMatchers.withId(R.id.entryReloWeight)).perform(ViewActions.typeText("2"));
+                onView(ViewMatchers.withId(R.id.entryPCHWeight)).perform(ViewActions.typeText("2"));
 /*
                 DatabaseHelper dbHelper = new DatabaseHelper(ComparisonSettings.this);
                 //get current comparison setting, if no, get default comparison setting
@@ -100,6 +99,14 @@ public class CompareSettingsTest {
         // Test that the db doesn't update if the user modifies weights and hits cancel
         @Test
         public void testDBUpdateOnCancel() {
+                //Enter 2 for all settings
+                onView(ViewMatchers.withId(R.id.entrySalaryWeight)).perform(ViewActions.typeText("2"));
+                onView(ViewMatchers.withId(R.id.entryBonusWeight)).perform(ViewActions.typeText("2"));
+                onView(ViewMatchers.withId(R.id.entryRSUWeight)).perform(ViewActions.typeText("2"));
+                onView(ViewMatchers.withId(R.id.entryReloWeight)).perform(ViewActions.typeText("2"));
+                onView(ViewMatchers.withId(R.id.entryPCHWeight)).perform(ViewActions.typeText("2"));
+
+                
 
         }
 
@@ -128,6 +135,20 @@ public class CompareSettingsTest {
         // Test that new values are shown if the user inputs values and clicks save
         @Test
         public void testDataFieldsOnSave() {
+                //Enter 2 for all settings
+                onView(ViewMatchers.withId(R.id.entrySalaryWeight)).perform(ViewActions.typeText("2"));
+                onView(ViewMatchers.withId(R.id.entryBonusWeight)).perform(ViewActions.typeText("2"));
+                onView(ViewMatchers.withId(R.id.entryRSUWeight)).perform(ViewActions.typeText("2"));
+                onView(ViewMatchers.withId(R.id.entryReloWeight)).perform(ViewActions.typeText("2"));
+                onView(ViewMatchers.withId(R.id.entryPCHWeight)).perform(ViewActions.typeText("2"));
+                //Click Save
+                onView(withId(R.id.saveSettingsButton)).perform(ViewActions.click());
+                //Check that weights are updated
+                onView(withId(R.id.entrySalaryWeight)).check(matches(withText("12")));
+                onView(withId(R.id.entryBonusWeight)).check(matches(withText("12")));
+                onView(withId(R.id.entryRSUWeight)).check(matches(withText("12")));
+                onView(withId(R.id.entryReloWeight)).check(matches(withText("12")));
+                onView(withId(R.id.entryPCHWeight)).check(matches(withText("12")));
 
         }
 
