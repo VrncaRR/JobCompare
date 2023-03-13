@@ -42,6 +42,8 @@ public class CurrentJob extends AppCompatActivity {
         entryCurJobPCH = (EditText) findViewById(R.id.entryCurJobPCH);
         testingTextView = (TextView) findViewById(R.id.testingTextView);
 
+
+
         //get current job
         dbHelper = new DatabaseHelper(CurrentJob.this);
         currentJob = dbHelper.getCurrentJob();

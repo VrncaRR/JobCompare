@@ -317,4 +317,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return recentJob;
 
     }
+
+    public int countJobOffers() {
+
+        String query = " SELECT COUNT ( * ) FROM " + OFFER_TABLE ;
+        SQLiteDatabase db = this.getReadableDatabase();
+        int count = 0;
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        if(cursor.moveToFirst()) {
+
+            count = cursor.getInt(0);
+        }
+        //close both cursor and db when done
+        cursor.close();
+        db.close();
+        return count;
+
+    }
 }
