@@ -24,7 +24,7 @@ public class ComparisonSettingsTest {
     @Before
     public void setUp() throws Exception{
 
-
+        Looper.prepare();
         settings = new ComparisonSettings();
 
     }
@@ -34,7 +34,7 @@ public class ComparisonSettingsTest {
     @Test
     public void testDefaultValues() {
 
-        Looper.prepare();
+        //Looper.prepare();
         assertEquals(1, settings.getSalaryWeight(), 0.0);
         assertEquals(1, settings.getBonusWeight(), 0.0);
         assertEquals(1, settings.getRSUWeight(), 0.0);
